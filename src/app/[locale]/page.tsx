@@ -9,6 +9,7 @@ import WhatsInBox from '@/components/sections/WhatsInBox';
 import FAQ from '@/components/sections/FAQ';
 import B2BForm from '@/components/sections/B2BForm';
 import Footer from '@/components/sections/Footer';
+import CookieBanner from '@/components/ui/CookieBanner';
 
 export default async function Home({params}: {params: Promise<{locale: string}>}) {
   const {locale} = await params;
@@ -26,6 +27,7 @@ export default async function Home({params}: {params: Promise<{locale: string}>}
       <FAQ />
       <B2BForm />
       <Footer />
+      <CookieBanner />
     </main>
   );
 }

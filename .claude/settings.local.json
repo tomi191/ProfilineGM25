@@ -13,7 +13,10 @@
       "Bash(cd \"C:/Users/User/Downloads/profiline-gm25-official-site\" && npm install 2>&1 | tail -5)",
       "Bash(cd \"C:/Users/User/Downloads/profiline-gm25-official-site\" && npm install next-intl @supabase/supabase-js @supabase/ssr resend @react-email/components motion lucide-react swiper 2>&1 | tail -5)",
       "Bash(cd \"C:/Users/User/Downloads/profiline-gm25-official-site\" && rm -f src/app/layout.tsx src/app/page.tsx public/file.svg public/globe.svg public/next.svg public/vercel.svg public/window.svg)",
-      "Bash(cd \"C:/Users/User/Downloads/profiline-gm25-official-site\" && npx next build 2>&1 | tail -30)"
+      "Bash(cd \"C:/Users/User/Downloads/profiline-gm25-official-site\" && npx next build 2>&1 | tail -30)",
+      "Bash(cd \"C:/Users/User/Downloads/profiline-gm25-official-site\" && npm run build 2>&1 | tail -40)",
+      "Bash(cd C:/Users/User/Downloads/profiline-gm25-official-site && npx next build 2>&1 | tail -30)",
+      "Bash(cd \"C:/Users/User/Downloads/profiline-gm25-official-site\" && npm run build 2>&1)"
     ]
   }
 }
