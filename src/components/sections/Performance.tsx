@@ -21,11 +21,11 @@ export default function Performance() {
           >
             <div className="aspect-video bg-[#111] border border-[#222] rounded-xl overflow-hidden">
               <Image
-                src="/images/product/gm25-rear-view.jpg"
-                alt="Profiline GM25 rear view showing balanced design"
+                src="/images/ai-webp/in-action-polishing.webp"
+                alt="Profiline GM25 in action — professional car polishing"
                 width={800}
                 height={450}
-                className="w-full h-full object-cover opacity-60 hover:opacity-80 transition-all duration-500 hover:scale-105"
+                className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-all duration-500 hover:scale-105"
               />
             </div>
           </motion.div>
@@ -61,11 +61,11 @@ export default function Performance() {
           >
             <div className="aspect-video bg-[#111] border border-[#222] rounded-xl overflow-hidden">
               <Image
-                src="/images/product/gm25-with-box-alt.jpg"
-                alt="Profiline GM25 with carry box showing complete kit"
+                src="/images/ai-webp/motor-internals.webp"
+                alt="Profiline GM25 motor internals — precision copper windings"
                 width={800}
                 height={450}
-                className="w-full h-full object-cover opacity-60 hover:opacity-80 transition-all duration-500 hover:scale-105"
+                className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-all duration-500 hover:scale-105"
               />
             </div>
           </motion.div>

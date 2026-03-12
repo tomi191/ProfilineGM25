@@ -12,14 +12,15 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 const photos = [
-  {src: '/images/product/gm25-side-view.jpg', alt: 'Profiline GM25 side view showing ergonomic grip design'},
-  {src: '/images/product/gm25-with-box.jpg', alt: 'Profiline GM25 complete package with branded carry box'},
-  {src: '/images/product/gm25-speed-dial.jpg', alt: 'Profiline GM25 6-speed variable control dial close-up'},
-  {src: '/images/product/gm25-rear-view.jpg', alt: 'Profiline GM25 rear view showing motor housing and cable'},
-  {src: '/images/product/gm25-backing-plate-top.jpg', alt: 'Profiline GM25 backing plate top view showing mounting mechanism'},
-  {src: '/images/product/gm25-logo-closeup.jpg', alt: 'Profiline GM25 brand logo engraved on the polisher body'},
-  {src: '/images/product/gm25-specs-label.jpg', alt: 'Profiline GM25 technical specifications label with CE marking'},
-  {src: '/images/product/gm25-motor-internals.jpg', alt: 'Profiline GM25 motor internals showing copper windings and brushes'},
+  {src: '/images/ai-webp/hero-cinematic.webp', alt: 'Profiline GM25 professional studio shot — side profile'},
+  {src: '/images/ai-webp/studio-top.webp', alt: 'Profiline GM25 top-down view showing speed dial and ergonomic grip'},
+  {src: '/images/ai-webp/studio-side.webp', alt: 'Profiline GM25 studio side view with cable'},
+  {src: '/images/ai-webp/with-box-front.webp', alt: 'Profiline GM25 with branded lime green box — front view'},
+  {src: '/images/ai-webp/in-action-polishing.webp', alt: 'Profiline GM25 in action — professional car polishing'},
+  {src: '/images/ai-webp/in-action-detail.webp', alt: 'Profiline GM25 detail polishing on dark paint'},
+  {src: '/images/ai-webp/lifestyle-workshop.webp', alt: 'Profiline GM25 in professional detailing workshop'},
+  {src: '/images/ai-webp/flat-lay.webp', alt: 'Profiline GM25 complete kit flat lay — polisher, pads, manual'},
+  {src: '/images/ai-webp/motor-internals.webp', alt: 'Profiline GM25 motor internals — copper windings and rotor'},
 ];
 
 export default function Gallery() {

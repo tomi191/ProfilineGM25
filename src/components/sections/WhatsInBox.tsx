@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import {useTranslations} from 'next-intl';
 import {motion} from 'motion/react';
 import {Zap, Circle, BookOpen, FileCheck} from 'lucide-react';
@@ -28,6 +29,34 @@ export default function WhatsInBox() {
         >
           {t('title')}
         </motion.h2>
+
+        {/* Box images */}
+        <motion.div
+          initial={{opacity: 0, y: 30}}
+          whileInView={{opacity: 1, y: 0}}
+          viewport={{once: true, margin: '-100px'}}
+          transition={{duration: 0.6}}
+          className="grid md:grid-cols-2 gap-6 mb-14"
+        >
+          <div className="relative aspect-video rounded-xl overflow-hidden border border-[#222] bg-[#111]">
+            <Image
+              src="/images/ai-webp/with-box-front.webp"
+              alt="Profiline GM25 with branded lime green box"
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover"
+            />
+          </div>
+          <div className="relative aspect-video rounded-xl overflow-hidden border border-[#222] bg-[#111]">
+            <Image
+              src="/images/ai-webp/flat-lay.webp"
+              alt="Profiline GM25 complete kit contents"
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover"
+            />
+          </div>
+        </motion.div>
 
         {/* Grid of items */}
         <div className="grid grid-cols-2 md:grid-cols-5 gap-6">

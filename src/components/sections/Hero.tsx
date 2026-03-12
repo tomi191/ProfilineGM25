@@ -1,12 +1,28 @@
 'use client';
 
+import {useState, useEffect} from 'react';
 import Image from 'next/image';
 import {useTranslations} from 'next-intl';
 import {motion} from 'motion/react';
 import {ChevronRight, ChevronDown} from 'lucide-react';
 
+const heroSlides = [
+  {src: '/images/ai-webp/hero-cinematic.webp', alt: 'Profiline GM25 side profile studio shot'},
+  {src: '/images/ai-webp/in-action-polishing.webp', alt: 'Profiline GM25 professional car polishing'},
+  {src: '/images/ai-webp/lifestyle-workshop.webp', alt: 'Profiline GM25 in detailing workshop'},
+  {src: '/images/ai-webp/in-action-detail.webp', alt: 'Profiline GM25 detail polishing on dark paint'},
+];
+
 export default function Hero() {
   const t = useTranslations('hero');
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % heroSlides.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
 
   const scrollTo = (id: string) => {
     const el = document.querySelector(id);
@@ -17,17 +33,26 @@ export default function Hero() {
 
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
-      {/* Background image */}
-      <Image
-        src="/images/product/gm25-with-box.jpg"
-        alt="Profiline GM25"
-        fill
-        className="object-cover opacity-30"
-        priority
-      />
+      {/* Background slideshow — stacked images with CSS crossfade */}
+      {heroSlides.map((slide, i) => (
+        <div
+          key={slide.src}
+          className="absolute inset-0 transition-opacity duration-[2000ms] ease-in-out"
+          style={{opacity: i === activeIndex ? 1 : 0}}
+        >
+          <Image
+            src={slide.src}
+            alt={slide.alt}
+            fill
+            className="object-cover opacity-40"
+            priority={i === 0}
+            sizes="100vw"
+          />
+        </div>
+      ))}
 
       {/* Dark gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-[#050505]" />
+      <div className="absolute inset-0 z-[1] bg-gradient-to-b from-black/70 via-black/40 to-[#050505]" />
 
       {/* Content */}
       <div className="relative z-10 text-center px-4 sm:px-6 max-w-5xl mx-auto">
@@ -44,11 +69,11 @@ export default function Hero() {
           initial={{opacity: 0, y: 30}}
           animate={{opacity: 1, y: 0}}
           transition={{duration: 0.6, delay: 0.25}}
-          className="text-5xl md:text-7xl lg:text-8xl font-extrabold leading-tight mb-6"
+          className="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-6"
         >
           {t('title1')}
           <br />
-          <span className="bg-gradient-to-r from-gray-200 to-gray-600 bg-clip-text text-transparent">
+          <span className="text-2xl md:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-gray-200 to-gray-500 bg-clip-text text-transparent">
             {t('title2')}
           </span>
         </motion.h1>
@@ -67,7 +92,7 @@ export default function Hero() {
           animate={{opacity: 1, y: 0}}
           transition={{duration: 0.6, delay: 0.55}}
           onClick={() => scrollTo('#b2b-section')}
-          className="inline-flex items-center gap-2 bg-lime-500 hover:bg-lime-400 text-black font-bold px-8 py-4 rounded-lg transition-colors cursor-pointer"
+          className="inline-flex items-center gap-2 border border-lime-400/60 text-lime-400 font-bold px-8 py-4 rounded-lg transition-all hover:bg-lime-400/10 hover:border-lime-400 hover:shadow-[0_0_20px_rgba(163,230,53,0.15)] cursor-pointer backdrop-blur-sm"
         >
           {t('cta')}
           <ChevronRight size={20} />
@@ -79,7 +104,7 @@ export default function Hero() {
         initial={{opacity: 0}}
         animate={{opacity: 1}}
         transition={{delay: 1}}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
       >
         <motion.div
           animate={{y: [0, 10, 0]}}

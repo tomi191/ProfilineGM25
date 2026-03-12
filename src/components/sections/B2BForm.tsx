@@ -188,7 +188,7 @@ export default function B2BForm() {
                 <button
                   type="submit"
                   disabled={status === 'submitting' || status === 'success'}
-                  className="w-full bg-lime-500 hover:bg-lime-600 text-black font-bold py-4 rounded-lg uppercase tracking-wider transition-colors disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer"
+                  className="w-full border border-lime-400/60 text-lime-400 font-bold py-4 rounded-lg uppercase tracking-wider transition-all hover:bg-lime-400/10 hover:border-lime-400 hover:shadow-[0_0_20px_rgba(163,230,53,0.15)] disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer"
                 >
                   {status === 'submitting' ? (
                     <span className="flex items-center justify-center gap-2">

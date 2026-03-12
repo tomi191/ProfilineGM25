@@ -117,7 +117,7 @@ export default function LegalModal({isOpen, onClose, type}: LegalModalProps) {
             <div className="px-6 py-4 border-t border-[#222]">
               <button
                 onClick={onClose}
-                className="w-full bg-lime-500 hover:bg-lime-600 text-black font-bold py-3 rounded-lg transition-colors cursor-pointer"
+                className="w-full border border-lime-400/60 text-lime-400 font-bold py-3 rounded-lg transition-all hover:bg-lime-400/10 hover:border-lime-400 hover:shadow-[0_0_15px_rgba(163,230,53,0.15)] cursor-pointer"
               >
                 {t('close')}
               </button>
