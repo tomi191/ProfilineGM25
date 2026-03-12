@@ -52,7 +52,7 @@ export async function POST(request: NextRequest) {
 
     // Insert into Supabase
     const supabase = createAdminClient();
-    const { error: dbError } = await supabase
+    const { data: insertedInquiry, error: dbError } = await supabase
       .from('inquiries')
       .insert({
         name,
@@ -63,7 +63,9 @@ export async function POST(request: NextRequest) {
         message: message || null,
         locale: locale || 'en',
         status: 'new',
-      });
+      })
+      .select('id')
+      .single();
 
     if (dbError) {
       console.error('Supabase error:', dbError);
@@ -71,6 +73,16 @@ export async function POST(request: NextRequest) {
         { error: 'Failed to save inquiry.' },
         { status: 500 }
       );
+    }
+
+    // Create in-app notification for admin
+    if (insertedInquiry) {
+      await supabase.from('notifications').insert({
+        type: 'new_inquiry',
+        title: 'New inquiry',
+        body: `${company} (${country})`,
+        inquiry_id: insertedInquiry.id,
+      });
     }
 
     // Send emails via Resend when API key is configured

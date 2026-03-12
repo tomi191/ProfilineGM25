@@ -74,7 +74,7 @@ export default function AdminShell({
           </div>
 
           <div className="flex items-center gap-2">
-            <NotificationBell />
+            <NotificationBell locale={locale} />
             <button
               onClick={handleLogout}
               className="flex items-center gap-2 rounded-lg bg-[#222] px-3 py-1.5 text-sm text-gray-300 transition-colors hover:bg-[#333] hover:text-white"
