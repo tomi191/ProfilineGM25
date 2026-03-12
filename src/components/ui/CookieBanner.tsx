@@ -16,14 +16,29 @@ export default function CookieBanner() {
     }
   }, []);
 
+  const logConsent = async (consent: boolean) => {
+    try {
+      const { createClient } = await import('@/lib/supabase/client');
+      const supabase = createClient();
+      await supabase.from('cookie_consents').insert({
+        consent,
+        user_agent: navigator.userAgent,
+      });
+    } catch {
+      // Silently fail — localStorage is the primary store
+    }
+  };
+
   const handleAccept = () => {
     localStorage.setItem("cookieConsent", "accepted");
     setVisible(false);
+    logConsent(true);
   };
 
   const handleDecline = () => {
     localStorage.setItem("cookieConsent", "declined");
     setVisible(false);
+    logConsent(false);
   };
 
   return (

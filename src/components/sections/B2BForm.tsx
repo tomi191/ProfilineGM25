@@ -1,7 +1,7 @@
 'use client';
 
 import {useState, FormEvent} from 'react';
-import {useTranslations} from 'next-intl';
+import {useTranslations, useLocale} from 'next-intl';
 import {motion} from 'motion/react';
 import {CheckCircle2, AlertCircle, Loader2} from 'lucide-react';
 
@@ -18,18 +18,39 @@ const inputClasses =
 
 export default function B2BForm() {
   const t = useTranslations('b2b');
+  const locale = useLocale();
   const [status, setStatus] = useState<FormStatus>('idle');
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setStatus('submitting');
 
-    // Simulate API call — real endpoint comes in Phase 2
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      company: formData.get('company'),
+      country: formData.get('country'),
+      expected_volume: formData.get('expected_volume'),
+      message: formData.get('message'),
+      locale,
+    };
+
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      if (!res.ok) throw new Error('Failed');
+
       setStatus('success');
+      (e.target as HTMLFormElement).reset();
+      setTimeout(() => setStatus('idle'), 5000);
     } catch {
       setStatus('error');
+      setTimeout(() => setStatus('idle'), 5000);
     }
   }
 
@@ -83,6 +104,7 @@ export default function B2BForm() {
                     </label>
                     <input
                       type="text"
+                      name="name"
                       required
                       className={inputClasses}
                       disabled={status === 'submitting' || status === 'success'}
@@ -94,6 +116,7 @@ export default function B2BForm() {
                     </label>
                     <input
                       type="email"
+                      name="email"
                       required
                       className={inputClasses}
                       disabled={status === 'submitting' || status === 'success'}
@@ -109,6 +132,7 @@ export default function B2BForm() {
                     </label>
                     <input
                       type="text"
+                      name="company"
                       required
                       className={inputClasses}
                       disabled={status === 'submitting' || status === 'success'}
@@ -120,6 +144,7 @@ export default function B2BForm() {
                     </label>
                     <input
                       type="text"
+                      name="country"
                       required
                       className={inputClasses}
                       disabled={status === 'submitting' || status === 'success'}
@@ -133,6 +158,7 @@ export default function B2BForm() {
                     {t('formVolume')}
                   </label>
                   <select
+                    name="expected_volume"
                     className={`${inputClasses} appearance-none`}
                     disabled={status === 'submitting' || status === 'success'}
                   >
@@ -149,6 +175,7 @@ export default function B2BForm() {
                     {t('formMessage')}
                   </label>
                   <textarea
+                    name="message"
                     rows={4}
                     required
                     placeholder={t('formMessagePlaceholder')}
