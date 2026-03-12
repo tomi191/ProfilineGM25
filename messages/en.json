@@ -1,0 +1,134 @@
+{
+  "nav": {
+    "product": "Product",
+    "specs": "Specifications",
+    "gallery": "Gallery",
+    "faq": "FAQ",
+    "contact": "Contact"
+  },
+  "hero": {
+    "subtitle": "Profiline GM25 Dual Action Polisher",
+    "title1": "Unleash Flawless Correction.",
+    "title2": "Engineered in Europe.",
+    "desc": "Engineered for professionals. Extreme cutting power combined with perfect balance for 8-hour shifts.",
+    "cta": "Become a Distributor"
+  },
+  "trust": {
+    "item1": "Engineered in Bulgaria",
+    "item1Tooltip": "Designed and assembled in our state-of-the-art European facility.",
+    "item2": "CE Certified Quality",
+    "item2Tooltip": "Meets strict European health, safety, and environmental protection standards.",
+    "item3": "2-Year Warranty",
+    "item3Tooltip": "Comprehensive coverage for professional daily use, including parts and labor.",
+    "item4": "EU-Wide Delivery",
+    "item4Tooltip": "Fast and reliable shipping to all European Union countries.",
+    "item5": "Spare Parts & Support",
+    "item5Tooltip": "Full range of replacement parts and dedicated professional support."
+  },
+  "gallery": {
+    "title": "See the GM25 Up Close",
+    "desc": "Explore every detail of the Profiline GM25 from multiple angles."
+  },
+  "specs": {
+    "title": "Raw Power. Refined Control.",
+    "desc": "The GM25 is built with uncompromising components to deliver consistent results on the toughest clear coats.",
+    "spec1Title": "1200W Heavy-Duty Motor",
+    "spec1Desc": "Relentless torque that won't bog down under pressure.",
+    "spec2Title": "25mm Massive Throw",
+    "spec2Desc": "Cover more surface area faster with extreme cutting power.",
+    "spec3Title": "Advanced Cooling",
+    "spec3Desc": "Optimized airflow keeps the machine and pad cool during extended use.",
+    "spec4Title": "6-Speed Control",
+    "spec4Desc": "Variable speed dial from 2200 to 5800 OPM for precise control.",
+    "power": "Power Output",
+    "powerValue": "1200W",
+    "weight": "Weight",
+    "weightValue": "2.60 kg",
+    "orbit": "Orbit Diameter",
+    "orbitValue": "25mm",
+    "plates": "Backing Plates",
+    "platesValue": "5\" & 6\"",
+    "speed": "Speed Range",
+    "speedValue": "6-Speed"
+  },
+  "performance": {
+    "title1": "Zero Vibration. Perfect Balance.",
+    "desc1": "We know that 8-hour shifts demand ergonomic perfection. The GM25 features a CNC-machined counterweight system that virtually eliminates vibration, reducing operator fatigue and preventing micro-marring on delicate finishes.",
+    "list1": "Rubberized grip zones for maximum control",
+    "list2": "Progressive trigger mechanism",
+    "list3": "9-meter heavy-duty flexible cable",
+    "title2": "Unstoppable Cutting Power.",
+    "desc2": "The massive 25mm orbital throw combined with our proprietary 1200W motor means you can remove deep defects faster than ever before. It maintains pad rotation even on complex curves and under heavy pressure."
+  },
+  "box": {
+    "title": "What's in the Box",
+    "item1": "GM25 Polisher",
+    "item2": "125mm (5\") Backing Plate",
+    "item3": "150mm (6\") Backing Plate",
+    "item4": "User Manual",
+    "item5": "Warranty Card"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "q1": "What is the warranty period for the Profiline GM25?",
+    "a1": "The GM25 comes with a comprehensive 2-year warranty covering material and workmanship defects across all European markets.",
+    "q2": "What backing plates are included?",
+    "a2": "The GM25 includes both a 125mm (5-inch) and a 150mm (6-inch) backing plate in the box.",
+    "q3": "Is it suitable for beginners?",
+    "a3": "While engineered for professionals, the dual-action mechanism makes it extremely safe and easy to use, even for beginners, minimizing the risk of burning through the clear coat.",
+    "q4": "What is the orbital throw?",
+    "a4": "The machine features a massive 25mm orbital throw — one of the largest on the market — for faster correction on large panels.",
+    "q5": "How can I become a distributor?",
+    "a5": "Fill out the partner form below with your company details, and our team will review your application and respond within 48 hours.",
+    "q6": "Are spare parts available?",
+    "a6": "Yes, we maintain a complete inventory of replacement parts including carbon brushes, backing plates, power cords, and all internal components."
+  },
+  "b2b": {
+    "title": "Partner with Profiline",
+    "desc": "We are expanding our European distribution network. If you represent a detailing academy, a wholesale distributor, or a premium retail outlet, we want to hear from you.",
+    "point1Title": "Exclusive Territories",
+    "point1Desc": "Secure your region with our protected distribution agreements.",
+    "point2Title": "Marketing Support",
+    "point2Desc": "Access to high-end media assets, POS materials, and training.",
+    "point3Title": "B2B Pricing",
+    "point3Desc": "Highly competitive margins for volume partners.",
+    "formName": "Full Name",
+    "formEmail": "Email",
+    "formCompany": "Company",
+    "formCountry": "Country",
+    "formVolume": "Expected Volume",
+    "formVolumeSelect": "Select volume",
+    "formMessage": "Message",
+    "formMessagePlaceholder": "Tell us about your distribution network...",
+    "formSubmit": "Submit Application",
+    "formSending": "Sending...",
+    "formSuccess": "Application received! We will contact you within 48 hours.",
+    "formError": "There was an error sending your application. Please try again."
+  },
+  "cookie": {
+    "message": "We use cookies to improve your experience and analyze our traffic. By continuing to use this site, you consent to our use of cookies.",
+    "accept": "Accept",
+    "decline": "Decline"
+  },
+  "footer": {
+    "desc": "Professional automotive detailing equipment engineered for perfection. Made in Europe.",
+    "support": "Support",
+    "manual": "User Manual (PDF)",
+    "warranty": "Warranty Claim",
+    "parts": "Spare Parts",
+    "contact": "Contact Us",
+    "legal": "Legal",
+    "terms": "Terms & Conditions",
+    "privacy": "Privacy Policy",
+    "cookiePolicy": "Cookie Policy",
+    "rights": "\u00a9 2026 Profiline Tools. All rights reserved.",
+    "ssl": "SSL Secure",
+    "verified": "Verified"
+  },
+  "legal": {
+    "close": "Close",
+    "privacyTitle": "Privacy Policy",
+    "termsTitle": "Terms & Conditions",
+    "cookieTitle": "Cookie Policy"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/User/Downloads/профилина//**)",
+      "Read(//c/Users/User/Downloads/профилина/**)",
+      "Bash(cd \"C:/Users/User/Downloads/profiline-gm25-official-site\" && cp -r docs /tmp/profiline-docs 2>/dev/null; ls docs/plans/*.md)",
+      "Bash(cd \"C:/Users/User/Downloads/profiline-gm25-official-site\" && rm -rf src/ node_modules/ package.json package-lock.json tsconfig.json vite.config.ts index.html metadata.json .env.example README.md)",
+      "Bash(cd \"C:/Users/User/Downloads/profiline-gm25-official-site\" && npx create-next-app@latest . --typescript --tailwind --eslint --app --src-dir=false --import-alias=\"@/*\" --turbopack --yes 2>&1)",
+      "Read(//c/Users/User/Downloads/profiline-temp/**)",
+      "Bash(cp -r app next.config.ts package.json tsconfig.json postcss.config.mjs eslint.config.mjs \"C:/Users/User/Downloads/profiline-gm25-official-site/\")",
+      "Bash(cp .gitignore \"C:/Users/User/Downloads/profiline-gm25-official-site/\")",
+      "Bash(TARGET=\"C:/Users/User/Downloads/profiline-gm25-official-site\" && SRC=\"C:/Users/User/Downloads/profiline-temp\" && cp \"$SRC/next.config.ts\" \"$SRC/package.json\" \"$SRC/tsconfig.json\" \"$SRC/postcss.config.mjs\" \"$SRC/eslint.config.mjs\" \"$SRC/.gitignore\" \"$SRC/next-env.d.ts\" \"$TARGET/\" && cp -r \"$SRC/src\" \"$TARGET/\" && cp -r \"$SRC/public\" \"$TARGET/\" 2>/dev/null; echo \"Done\")",
+      "Bash(cd \"C:/Users/User/Downloads/profiline-gm25-official-site\" && npm install 2>&1 | tail -5)",
+      "Bash(cd \"C:/Users/User/Downloads/profiline-gm25-official-site\" && npm install next-intl @supabase/supabase-js @supabase/ssr resend @react-email/components motion lucide-react swiper 2>&1 | tail -5)",
+      "Bash(cd \"C:/Users/User/Downloads/profiline-gm25-official-site\" && rm -f src/app/layout.tsx src/app/page.tsx public/file.svg public/globe.svg public/next.svg public/vercel.svg public/window.svg)",
+      "Bash(cd \"C:/Users/User/Downloads/profiline-gm25-official-site\" && npx next build 2>&1 | tail -30)"
+    ]
+  }
+}
