@@ -6,6 +6,9 @@ import Gallery from '@/components/sections/Gallery';
 import TechSpecs from '@/components/sections/TechSpecs';
 import Performance from '@/components/sections/Performance';
 import WhatsInBox from '@/components/sections/WhatsInBox';
+import FAQ from '@/components/sections/FAQ';
+import B2BForm from '@/components/sections/B2BForm';
+import Footer from '@/components/sections/Footer';
 
 export default async function Home({params}: {params: Promise<{locale: string}>}) {
   const {locale} = await params;
@@ -20,6 +23,9 @@ export default async function Home({params}: {params: Promise<{locale: string}>}
       <TechSpecs />
       <Performance />
       <WhatsInBox />
+      <FAQ />
+      <B2BForm />
+      <Footer />
     </main>
   );
 }
