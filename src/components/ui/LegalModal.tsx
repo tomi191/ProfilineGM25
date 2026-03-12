@@ -12,17 +12,58 @@ interface LegalModalProps {
   type: ModalType;
 }
 
-const placeholderContent: Record<string, string> = {
-  privacy: 'Privacy Policy content will be added here.',
-  terms: 'Terms & Conditions content will be added here.',
-  cookie: 'Cookie Policy content will be added here.',
-};
-
 const titleKeys: Record<string, string> = {
   privacy: 'privacyTitle',
   terms: 'termsTitle',
   cookie: 'cookieTitle',
 };
+
+const contentKeys: Record<string, string> = {
+  privacy: 'privacyContent',
+  terms: 'termsContent',
+  cookie: 'cookieContent',
+};
+
+function renderLegalContent(content: string) {
+  const lines = content.split('\n');
+  const elements: React.ReactNode[] = [];
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+
+    if (line.trim() === '') {
+      continue;
+    }
+
+    if (line.startsWith('## ')) {
+      elements.push(
+        <h4 key={i} className="text-white font-semibold text-base mt-5 mb-2">
+          {line.replace('## ', '')}
+        </h4>
+      );
+    } else if (line.startsWith('# ')) {
+      elements.push(
+        <h3 key={i} className="text-white font-bold text-lg mt-6 mb-3 first:mt-0">
+          {line.replace('# ', '')}
+        </h3>
+      );
+    } else if (line.startsWith('- ')) {
+      elements.push(
+        <li key={i} className="text-gray-400 leading-relaxed ml-4 list-disc">
+          {line.replace('- ', '')}
+        </li>
+      );
+    } else {
+      elements.push(
+        <p key={i} className="text-gray-400 leading-relaxed mb-2">
+          {line}
+        </p>
+      );
+    }
+  }
+
+  return elements;
+}
 
 export default function LegalModal({isOpen, onClose, type}: LegalModalProps) {
   const t = useTranslations('legal');
@@ -69,9 +110,7 @@ export default function LegalModal({isOpen, onClose, type}: LegalModalProps) {
 
             {/* Scrollable body */}
             <div className="flex-1 overflow-y-auto px-6 py-6">
-              <p className="text-gray-400 leading-relaxed">
-                {placeholderContent[type]}
-              </p>
+              {renderLegalContent(t(contentKeys[type]))}
             </div>
 
             {/* Footer */}
