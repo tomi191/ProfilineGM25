@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createAdminClient } from '@/lib/supabase/admin';
+import { sendPushToAll } from '@/lib/push-send';
 
 // Simple in-memory rate limiting
 const rateLimit = new Map<string, { count: number; resetTime: number }>();
@@ -83,6 +84,18 @@ export async function POST(request: NextRequest) {
         body: `${company} (${country})`,
         inquiry_id: insertedInquiry.id,
       });
+
+      // Send push notification to all subscribed admins
+      try {
+        await sendPushToAll({
+          title: 'New Inquiry',
+          body: `${company} (${country}) — ${name}`,
+          url: `${process.env.NEXT_PUBLIC_SITE_URL}/admin/inquiries/${insertedInquiry.id}`,
+        });
+      } catch (pushError) {
+        console.error('Push notification error:', pushError);
+        // Don't fail the request if push fails
+      }
     }
 
     // Send emails via Resend when API key is configured

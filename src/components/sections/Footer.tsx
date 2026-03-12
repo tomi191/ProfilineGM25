@@ -7,8 +7,22 @@ import LegalModal from '@/components/ui/LegalModal';
 
 type ModalType = 'privacy' | 'terms' | 'cookie' | null;
 
-export default function Footer() {
+/* Map CMS field names to translation keys where they differ */
+const cmsKeyMap: Record<string, string> = {
+  desc: 'description',
+};
+
+interface FooterProps {
+  cms?: Record<string, unknown>;
+}
+
+export default function Footer({cms}: FooterProps) {
   const t = useTranslations('footer');
+  const c = (key: string) => {
+    const cmsField = cmsKeyMap[key] ?? key;
+    if (cms && cms[cmsField] !== undefined) return String(cms[cmsField]);
+    return t(key);
+  };
   const tLegal = useTranslations('legal');
   const [modalType, setModalType] = useState<ModalType>(null);
 
@@ -23,7 +37,7 @@ export default function Footer() {
               <h3 className="text-2xl font-bold tracking-tight text-white mb-3">
                 PROFILINE
               </h3>
-              <p className="text-gray-500 mb-6 max-w-md">{t('desc')}</p>
+              <p className="text-gray-500 mb-6 max-w-md">{c('desc')}</p>
 
               {/* Social icons */}
               <div className="flex gap-3">

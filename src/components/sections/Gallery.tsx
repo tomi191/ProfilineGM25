@@ -23,8 +23,22 @@ const photos = [
   {src: '/images/ai-webp/motor-internals.webp', alt: 'Profiline GM25 motor internals — copper windings and rotor'},
 ];
 
-export default function Gallery() {
+/* Map CMS field names to translation keys where they differ */
+const cmsKeyMap: Record<string, string> = {
+  desc: 'subtitle',
+};
+
+interface GalleryProps {
+  cms?: Record<string, unknown>;
+}
+
+export default function Gallery({cms}: GalleryProps) {
   const t = useTranslations('gallery');
+  const c = (key: string) => {
+    const cmsField = cmsKeyMap[key] ?? key;
+    if (cms && cms[cmsField] !== undefined) return String(cms[cmsField]);
+    return t(key);
+  };
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   const openLightbox = (index: number) => setLightboxIndex(index);
@@ -50,7 +64,7 @@ export default function Gallery() {
             transition={{duration: 0.5}}
             className="text-3xl md:text-5xl font-extrabold mb-4"
           >
-            {t('title')}
+            {c('title')}
           </motion.h2>
           <motion.p
             initial={{opacity: 0, y: 20}}
@@ -59,7 +73,7 @@ export default function Gallery() {
             transition={{duration: 0.5, delay: 0.1}}
             className="text-gray-400 text-lg max-w-xl mx-auto"
           >
-            {t('desc')}
+            {c('desc')}
           </motion.p>
         </div>
 

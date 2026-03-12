@@ -16,8 +16,22 @@ const benefits = [
 const inputClasses =
   'w-full bg-[#111] border border-[#222] focus:border-lime-400 focus:ring-1 focus:ring-lime-400 outline-none px-4 py-3 text-white rounded-lg transition-colors';
 
-export default function B2BForm() {
+/* Map CMS field names to translation keys where they differ */
+const cmsKeyMap: Record<string, string> = {
+  desc: 'subtitle',
+};
+
+interface B2BFormProps {
+  cms?: Record<string, unknown>;
+}
+
+export default function B2BForm({cms}: B2BFormProps) {
   const t = useTranslations('b2b');
+  const c = (key: string) => {
+    const cmsField = cmsKeyMap[key] ?? key;
+    if (cms && cms[cmsField] !== undefined) return String(cms[cmsField]);
+    return t(key);
+  };
   const locale = useLocale();
   const [status, setStatus] = useState<FormStatus>('idle');
 
@@ -68,8 +82,8 @@ export default function B2BForm() {
             viewport={{once: true, margin: '-100px'}}
             transition={{duration: 0.6}}
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">{t('title')}</h2>
-            <p className="text-gray-400 text-lg mb-10">{t('desc')}</p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">{c('title')}</h2>
+            <p className="text-gray-400 text-lg mb-10">{c('desc')}</p>
 
             <div className="space-y-8">
               {benefits.map((b) => (

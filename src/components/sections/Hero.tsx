@@ -13,8 +13,14 @@ const heroSlides = [
   {src: '/images/ai-webp/in-action-detail.webp', alt: 'Profiline GM25 detail polishing on dark paint'},
 ];
 
-export default function Hero() {
+interface HeroProps {
+  cms?: Record<string, unknown>;
+}
+
+export default function Hero({cms}: HeroProps) {
   const t = useTranslations('hero');
+  const c = (key: string) =>
+    cms && cms[key] !== undefined ? String(cms[key]) : t(key);
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
@@ -62,7 +68,7 @@ export default function Hero() {
           transition={{duration: 0.6, delay: 0.1}}
           className="inline-block text-lime-400 uppercase tracking-widest text-sm font-bold mb-6"
         >
-          {t('subtitle')}
+          {c('subtitle')}
         </motion.span>
 
         <motion.h1
@@ -71,10 +77,10 @@ export default function Hero() {
           transition={{duration: 0.6, delay: 0.25}}
           className="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-6"
         >
-          {t('title1')}
+          {c('title1')}
           <br />
           <span className="text-2xl md:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-gray-200 to-gray-500 bg-clip-text text-transparent">
-            {t('title2')}
+            {c('title2')}
           </span>
         </motion.h1>
 
@@ -84,7 +90,7 @@ export default function Hero() {
           transition={{duration: 0.6, delay: 0.4}}
           className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-10"
         >
-          {t('desc')}
+          {c('desc')}
         </motion.p>
 
         <motion.button
@@ -94,7 +100,7 @@ export default function Hero() {
           onClick={() => scrollTo('#b2b-section')}
           className="inline-flex items-center gap-2 border border-lime-400/60 text-lime-400 font-bold px-8 py-4 rounded-lg transition-all hover:bg-lime-400/10 hover:border-lime-400 hover:shadow-[0_0_20px_rgba(163,230,53,0.15)] cursor-pointer backdrop-blur-sm"
         >
-          {t('cta')}
+          {c('cta')}
           <ChevronRight size={20} />
         </motion.button>
       </div>

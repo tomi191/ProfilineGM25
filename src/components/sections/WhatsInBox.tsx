@@ -13,8 +13,16 @@ const items = [
   {key: 'item5', icon: FileCheck},
 ] as const;
 
-export default function WhatsInBox() {
+interface WhatsInBoxProps {
+  cms?: Record<string, unknown>;
+}
+
+export default function WhatsInBox({cms}: WhatsInBoxProps) {
   const t = useTranslations('box');
+  const c = (key: string) => {
+    if (cms && cms[key] !== undefined) return String(cms[key]);
+    return t(key);
+  };
 
   return (
     <section className="bg-[#050505] py-24 border-t border-[#1a1a1a]">
@@ -27,7 +35,7 @@ export default function WhatsInBox() {
           transition={{duration: 0.5}}
           className="text-3xl md:text-5xl font-bold text-center mb-14"
         >
-          {t('title')}
+          {c('title')}
         </motion.h2>
 
         {/* Box images */}
@@ -72,7 +80,7 @@ export default function WhatsInBox() {
                 className="bg-[#111] border border-[#222] rounded-xl p-6 text-center hover:border-[#333] transition-colors last:col-span-2 md:last:col-span-1 justify-self-center last:w-full md:last:w-auto"
               >
                 <Icon className="w-10 h-10 text-lime-400 mx-auto mb-4" />
-                <p className="text-sm font-medium text-gray-300">{t(item.key)}</p>
+                <p className="text-sm font-medium text-gray-300">{c(item.key)}</p>
               </motion.div>
             );
           })}

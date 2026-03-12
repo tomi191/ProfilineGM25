@@ -22,8 +22,22 @@ const stats = [
   {valueKey: 'platesValue', labelKey: 'plates'},
 ] as const;
 
-export default function TechSpecs() {
+/* Map CMS field names to translation keys where they differ */
+const cmsKeyMap: Record<string, string> = {
+  desc: 'subtitle',
+};
+
+interface TechSpecsProps {
+  cms?: Record<string, unknown>;
+}
+
+export default function TechSpecs({cms}: TechSpecsProps) {
   const t = useTranslations('specs');
+  const c = (key: string) => {
+    const cmsField = cmsKeyMap[key] ?? key;
+    if (cms && cms[cmsField] !== undefined) return String(cms[cmsField]);
+    return t(key);
+  };
 
   return (
     <section id="specs" className="py-20 md:py-28 bg-[#050505] relative overflow-hidden">
@@ -37,7 +51,7 @@ export default function TechSpecs() {
             transition={{duration: 0.5}}
             className="text-3xl md:text-5xl font-extrabold mb-4"
           >
-            {t('title')}
+            {c('title')}
           </motion.h2>
           <motion.p
             initial={{opacity: 0, y: 20}}
@@ -46,7 +60,7 @@ export default function TechSpecs() {
             transition={{duration: 0.5, delay: 0.1}}
             className="text-gray-400 text-lg max-w-2xl mx-auto"
           >
-            {t('desc')}
+            {c('desc')}
           </motion.p>
         </div>
 

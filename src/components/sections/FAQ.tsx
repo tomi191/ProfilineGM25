@@ -5,11 +5,31 @@ import {useTranslations} from 'next-intl';
 import {motion, AnimatePresence} from 'motion/react';
 import {ChevronDown} from 'lucide-react';
 
-const faqKeys = ['q1', 'q2', 'q3', 'q4', 'q5', 'q6'] as const;
+interface FAQProps {
+  cms?: Record<string, unknown>;
+}
 
-export default function FAQ() {
+export default function FAQ({cms}: FAQProps) {
   const t = useTranslations('faq');
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const c = (key: string) => {
+    if (cms && cms[key] !== undefined) return String(cms[key]);
+    return t(key);
+  };
+
+  // Build FAQ keys dynamically: use CMS pairs if available, otherwise hardcoded 6
+  const faqKeys: string[] = [];
+  if (cms) {
+    let i = 1;
+    while (cms[`q${i}`] !== undefined) {
+      faqKeys.push(`q${i}`);
+      i++;
+    }
+  }
+  if (faqKeys.length === 0) {
+    faqKeys.push('q1', 'q2', 'q3', 'q4', 'q5', 'q6');
+  }
 
   return (
     <section id="faq" className="bg-[#0a0a0a] py-24 border-t border-[#1a1a1a]">
@@ -21,13 +41,13 @@ export default function FAQ() {
           transition={{duration: 0.5}}
           className="text-3xl md:text-5xl font-bold text-center mb-14"
         >
-          {t('title')}
+          {c('title')}
         </motion.h2>
 
         <div className="space-y-4">
           {faqKeys.map((key, i) => {
             const isOpen = openIndex === i;
-            const answerKey = key.replace('q', 'a') as `a${1 | 2 | 3 | 4 | 5 | 6}`;
+            const answerKey = key.replace('q', 'a');
 
             return (
               <motion.div
@@ -42,7 +62,7 @@ export default function FAQ() {
                   onClick={() => setOpenIndex(isOpen ? null : i)}
                   className="w-full flex items-center justify-between px-6 py-5 text-left cursor-pointer"
                 >
-                  <span className="font-semibold text-white pr-4">{t(key)}</span>
+                  <span className="font-semibold text-white pr-4">{c(key)}</span>
                   <motion.span
                     animate={{rotate: isOpen ? 180 : 0}}
                     transition={{duration: 0.3}}
@@ -61,7 +81,7 @@ export default function FAQ() {
                       transition={{duration: 0.3, ease: 'easeInOut'}}
                     >
                       <div className="px-6 pb-5 text-gray-400">
-                        {t(answerKey)}
+                        {c(answerKey)}
                       </div>
                     </motion.div>
                   )}

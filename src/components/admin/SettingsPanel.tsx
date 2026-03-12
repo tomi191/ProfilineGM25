@@ -3,6 +3,7 @@
 import { useState, useCallback } from 'react';
 import { createClient } from '@/lib/supabase/client';
 import { exportToCSV } from '@/lib/export-csv';
+import { subscribeToPush, unsubscribeFromPush } from '@/lib/push';
 import {
   User,
   Bell,
@@ -238,10 +239,44 @@ export default function SettingsPanel({
     [supabase]
   );
 
-  function handleToggle(key: keyof AdminSettings, value: boolean) {
+  async function handleToggle(key: keyof AdminSettings, value: boolean) {
     const updated = { ...settings, [key]: value };
     setSettings(updated);
     saveSettings(updated);
+
+    // Handle push notification subscription
+    if (key === 'push_enabled') {
+      try {
+        if (value) {
+          const subscription = await subscribeToPush();
+          if (subscription) {
+            const subJSON = subscription.toJSON();
+            await fetch('/api/admin/push-subscribe', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                endpoint: subJSON.endpoint,
+                keys: subJSON.keys,
+              }),
+            });
+          } else {
+            // Subscription failed — revert toggle
+            const reverted = { ...updated, push_enabled: false };
+            setSettings(reverted);
+            saveSettings(reverted);
+          }
+        } else {
+          await unsubscribeFromPush();
+          await fetch('/api/admin/push-subscribe', { method: 'DELETE' });
+        }
+      } catch (err) {
+        console.error('Push toggle error:', err);
+        // Revert on error
+        const reverted = { ...updated, push_enabled: !value };
+        setSettings(reverted);
+        saveSettings(reverted);
+      }
+    }
   }
 
   /* ======== Template Handlers ======== */
@@ -531,7 +566,7 @@ export default function SettingsPanel({
             checked={settings.push_enabled}
             onChange={(v) => handleToggle('push_enabled', v)}
             label="Push notifications"
-            description="Browser push notifications for new inquiries (coming soon)."
+            description="Browser push notifications for new inquiries."
           />
           <Toggle
             checked={settings.followup_reminders}

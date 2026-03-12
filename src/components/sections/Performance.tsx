@@ -4,8 +4,16 @@ import Image from 'next/image';
 import {useTranslations} from 'next-intl';
 import {motion} from 'motion/react';
 
-export default function Performance() {
+interface PerformanceProps {
+  cms?: Record<string, unknown>;
+}
+
+export default function Performance({cms}: PerformanceProps) {
   const t = useTranslations('performance');
+  const c = (key: string) => {
+    if (cms && cms[key] !== undefined) return String(cms[key]);
+    return t(key);
+  };
 
   return (
     <section className="bg-[#0a0a0a] py-24">
@@ -37,13 +45,13 @@ export default function Performance() {
             transition={{duration: 0.6, delay: 0.1}}
             className="w-full md:w-1/2"
           >
-            <h3 className="text-3xl md:text-4xl font-bold mb-4">{t('title1')}</h3>
-            <p className="text-gray-400 text-lg mb-6">{t('desc1')}</p>
+            <h3 className="text-3xl md:text-4xl font-bold mb-4">{c('title1')}</h3>
+            <p className="text-gray-400 text-lg mb-6">{c('desc1')}</p>
             <ul className="space-y-3">
               {(['list1', 'list2', 'list3'] as const).map((key) => (
                 <li key={key} className="flex items-center gap-3 text-gray-300">
                   <span className="w-2 h-2 rounded-full bg-lime-400 flex-shrink-0" />
-                  {t(key)}
+                  {c(key)}
                 </li>
               ))}
             </ul>
@@ -77,8 +85,8 @@ export default function Performance() {
             transition={{duration: 0.6, delay: 0.1}}
             className="w-full md:w-1/2"
           >
-            <h3 className="text-3xl md:text-4xl font-bold mb-4">{t('title2')}</h3>
-            <p className="text-gray-400 text-lg">{t('desc2')}</p>
+            <h3 className="text-3xl md:text-4xl font-bold mb-4">{c('title2')}</h3>
+            <p className="text-gray-400 text-lg">{c('desc2')}</p>
           </motion.div>
         </div>
       </div>
