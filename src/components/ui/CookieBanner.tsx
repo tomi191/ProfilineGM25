@@ -33,12 +33,14 @@ export default function CookieBanner() {
     localStorage.setItem("cookieConsent", "accepted");
     setVisible(false);
     logConsent(true);
+    window.dispatchEvent(new Event("cookieConsentChanged"));
   };
 
   const handleDecline = () => {
     localStorage.setItem("cookieConsent", "declined");
     setVisible(false);
     logConsent(false);
+    window.dispatchEvent(new Event("cookieConsentChanged"));
   };
 
   return (
