@@ -1,13 +1,14 @@
-import { Inbox, PhoneCall, BarChart3 } from 'lucide-react';
+import { Inbox, PhoneCall, BarChart3, TrendingUp } from 'lucide-react';
 
 interface StatsCardsProps {
   newCount: number;
   contactedThisMonth: number;
   totalCount: number;
+  conversionRate: string;
 }
 
-export default function StatsCards({ newCount, contactedThisMonth, totalCount }: StatsCardsProps) {
-  const cards = [
+export default function StatsCards({ newCount, contactedThisMonth, totalCount, conversionRate }: StatsCardsProps) {
+  const cards: Array<{ label: string; value: number | string; icon: typeof Inbox; accent: string; bg: string }> = [
     {
       label: 'New Inquiries',
       value: newCount,
@@ -29,10 +30,17 @@ export default function StatsCards({ newCount, contactedThisMonth, totalCount }:
       accent: 'text-blue-400',
       bg: 'bg-blue-500/10',
     },
+    {
+      label: 'Conversion Rate',
+      value: conversionRate,
+      icon: TrendingUp,
+      accent: 'text-emerald-400',
+      bg: 'bg-emerald-500/10',
+    },
   ];
 
   return (
-    <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
       {cards.map((card) => (
         <div
           key={card.label}
