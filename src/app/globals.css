@@ -23,3 +23,18 @@ body {
   background-color: var(--color-lime-brand);
   color: #000000;
 }
+
+/* Swiper brand overrides */
+.gallery-swiper .swiper-button-next,
+.gallery-swiper .swiper-button-prev {
+  color: #A3E635 !important;
+}
+
+.gallery-swiper .swiper-pagination-bullet {
+  background: #555 !important;
+  opacity: 1 !important;
+}
+
+.gallery-swiper .swiper-pagination-bullet-active {
+  background: #A3E635 !important;
+}
