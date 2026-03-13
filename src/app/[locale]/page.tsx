@@ -13,7 +13,6 @@ import Footer from '@/components/sections/Footer';
 import CookieBanner from '@/components/ui/CookieBanner';
 import SettlingContours from '@/components/ui/SettlingContours';
 import WaveDamping from '@/components/ui/WaveDamping';
-import MicroSurface from '@/components/ui/MicroSurface';
 
 export default async function Home({params}: {params: Promise<{locale: string}>}) {
   const {locale} = await params;
@@ -43,7 +42,7 @@ export default async function Home({params}: {params: Promise<{locale: string}>}
       <WaveDamping from="#0a0a0a" to="#050505" />
       {isVisible('whatsInBox') && <WhatsInBox cms={siteContent['whatsInBox']} />}
       {/* WhatsInBox (#050505) → FAQ (#0a0a0a) */}
-      <MicroSurface from="#050505" to="#0a0a0a" />
+      <WaveDamping from="#050505" to="#0a0a0a" />
       {isVisible('faq') && <FAQ cms={siteContent['faq']} />}
       {/* FAQ (#0a0a0a) → B2BForm (#0a0a0a) */}
       <SettlingContours from="#0a0a0a" to="#0a0a0a" />

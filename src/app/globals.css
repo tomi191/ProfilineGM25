@@ -70,8 +70,3 @@ body {
   80%  { opacity: 0.3; }
   100% { opacity: 0; transform: translateX(40px); }
 }
-
-@keyframes micro-pulse {
-  0%, 100% { opacity: 0.2; r: 1.5; }
-  50% { opacity: 0.8; r: 2.5; }
-}
