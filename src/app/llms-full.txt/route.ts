@@ -19,7 +19,7 @@ export async function GET() {
 
 ### Physical Dimensions
 - **Weight:** 2.60 kg (machine only, without backing plate)
-- **Power Cable Length:** 9 meters, heavy-duty rubber
+- **Power Cable Length:** 6 meters, heavy-duty rubber
 - **Plug Type:** European Schuko (CEE 7/7)
 
 ### Backing Plates
@@ -173,7 +173,7 @@ A: The larger 25mm orbit moves the pad in a wider circular path, which translate
 A: OPM (oscillations per minute) measures how many times the eccentric orbit completes a full cycle. This is the standard measurement for dual action polishers. RPM (revolutions per minute) is used for rotary polishers. The GM25 operates at 2200-5800 OPM.
 
 ### Q: Can I use the GM25 on boats and aircraft?
-A: Yes. The GM25 is well-suited for marine gelcoat correction and aviation paint restoration. The 9-meter cable is particularly useful for working on large surfaces without extension cords.
+A: Yes. The GM25 is well-suited for marine gelcoat correction and aviation paint restoration. The 6-meter cable provides practical reach for working on large surfaces.
 
 ### Q: Does the GM25 come with pads?
 A: No. The GM25 includes two backing plates (5" and 6") but pads are sold separately. This allows professionals to choose their preferred pad system and compounds.

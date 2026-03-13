@@ -27,7 +27,46 @@
   },
   "gallery": {
     "title": "See the GM25 Up Close",
-    "desc": "Explore every detail of the Profiline GM25 from multiple angles."
+    "desc": "Explore every detail of the Profiline GM25 from multiple angles.",
+    "photoCounter": "{current} / {total}",
+    "photos": [
+      {
+        "title": "Professional Studio Shot",
+        "description": "The Profiline GM25 25mm dual action orbital polisher — 1200W motor, only 2.60 kg. The largest orbit throw in its class for maximum paint correction efficiency."
+      },
+      {
+        "title": "Top View — Speed Control Dial",
+        "description": "6-speed electronic dial (2200–5800 OPM) with ergonomic housing designed for comfortable 8+ hour professional shifts."
+      },
+      {
+        "title": "Side Profile with Cable",
+        "description": "Compact design with CNC-balanced counterweight for virtually zero vibration. 6-meter heavy-duty flexible power cable included."
+      },
+      {
+        "title": "GM25 with Branded Packaging",
+        "description": "Professional lime-green branded packaging. Complete kit includes: polisher, 125mm and 150mm backing plates, user manual, and warranty card."
+      },
+      {
+        "title": "Paint Correction in Action",
+        "description": "GM25 in action — the 25mm orbit delivers up to 40% faster defect removal compared to 15mm polishers. Ideal for deep swirl and scratch correction."
+      },
+      {
+        "title": "Precision Finishing on Dark Paint",
+        "description": "Fine polishing on delicate dark paint — the progressive trigger allows precise speed control through variable pressure for flawless results."
+      },
+      {
+        "title": "Professional Detailing Workshop",
+        "description": "The GM25 in a professional workshop environment. Perfect for detailing studios, body shops, and training academies across Europe."
+      },
+      {
+        "title": "Complete Kit — Flat Lay",
+        "description": "Everything in the box: GM25 polisher, 5\" and 6\" backing plates (M8 thread), user manual, and 2-year professional warranty card. CE certified."
+      },
+      {
+        "title": "Motor Internals — Engineering Excellence",
+        "description": "1200W motor with copper windings and precision nylon gear mechanism. Class II double insulation, CE and EAC certified. Engineered and assembled in Bulgaria, EU."
+      }
+    ]
   },
   "specs": {
     "title": "Raw Power. Refined Control.",
@@ -56,7 +95,7 @@
     "desc1": "We know that 8-hour shifts demand ergonomic perfection. The GM25 features a CNC-machined counterweight system that virtually eliminates vibration, reducing operator fatigue and preventing micro-marring on delicate finishes.",
     "list1": "Rubberized grip zones for maximum control",
     "list2": "Progressive trigger mechanism",
-    "list3": "9-meter heavy-duty flexible cable",
+    "list3": "6-meter heavy-duty flexible cable",
     "title2": "Unstoppable Cutting Power.",
     "desc2": "The massive 25mm orbital throw combined with our proprietary 1200W motor means you can remove deep defects faster than ever before. It maintains pad rotation even on complex curves and under heavy pressure."
   },

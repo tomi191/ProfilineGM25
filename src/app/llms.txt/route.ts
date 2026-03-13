@@ -10,7 +10,7 @@ export async function GET() {
 - **Weight:** 2.60 kg (lightest in 1200W class)
 - **Speed Range:** 2200–5800 OPM, 6-speed electronic dial
 - **Backing Plates:** 125mm (5") and 150mm (6") included
-- **Cable:** 9-meter heavy-duty power cord
+- **Cable:** 6-meter heavy-duty power cord
 - **Certifications:** CE, EAC
 - **Origin:** Designed and assembled in Bulgaria, EU
 - **Warranty:** 2 years (professional use, all EU markets)
@@ -21,7 +21,7 @@ export async function GET() {
 - **1200W in 2.60 kg** — best power-to-weight ratio in class
 - **CNC-balanced counterweight** — virtually zero vibration for 8-hour professional use
 - **Progressive trigger** — variable pressure control, not just on/off
-- **9m cable** — longest standard cable, eliminates need for extensions in workshop use
+- **6m cable** — practical length for workshop use without getting tangled
 
 ## Ideal Use Cases
 - Professional automotive paint correction (deep swirl removal, scratch repair)

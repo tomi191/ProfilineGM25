@@ -14,6 +14,8 @@ import CookieBanner from '@/components/ui/CookieBanner';
 import SettlingContours from '@/components/ui/SettlingContours';
 import WaveDamping from '@/components/ui/WaveDamping';
 
+import InfinitePartnerScroll from '@/components/ui/InfinitePartnerScroll';
+
 export default async function Home({params}: {params: Promise<{locale: string}>}) {
   const {locale} = await params;
   setRequestLocale(locale);
@@ -28,25 +30,34 @@ export default async function Home({params}: {params: Promise<{locale: string}>}
     <main className="min-h-screen bg-[#050505] text-white">
       <Header />
       {isVisible('hero') && <Hero cms={siteContent['hero']} />}
+      <InfinitePartnerScroll />
+      {/* Introduction / Engineering first */}
+      {isVisible('performance') && <Performance cms={siteContent['performance']} />}
+      
+      {/* Wave transition into TrustBar */}
+      <WaveDamping from="#0a0a0a" to="#050505" />
       {isVisible('trustBar') && <TrustBar cms={siteContent['trustBar']} />}
-      {/* TrustBar (#0a0a0a) → Gallery (#050505) */}
-      <SettlingContours from="#0a0a0a" to="#050505" />
-      {isVisible('gallery') && <Gallery cms={siteContent['gallery']} />}
-      {/* Gallery (#050505) → TechSpecs (#050505) */}
+      
+      {/* Wave transition into Specs */}
       <WaveDamping from="#050505" to="#050505" />
       {isVisible('techSpecs') && <TechSpecs cms={siteContent['techSpecs']} />}
-      {/* TechSpecs (#050505) → Performance (#0a0a0a) */}
+      
+      {/* Wave transition into Gallery */}
+      <WaveDamping from="#050505" to="#050505" />
+      {isVisible('gallery') && <Gallery cms={siteContent['gallery']} />}
+      
+      {/* Transition into Box & Logistics */}
       <SettlingContours from="#050505" to="#0a0a0a" />
-      {isVisible('performance') && <Performance cms={siteContent['performance']} />}
-      {/* Performance (#0a0a0a) → WhatsInBox (#050505) */}
-      <WaveDamping from="#0a0a0a" to="#050505" />
       {isVisible('whatsInBox') && <WhatsInBox cms={siteContent['whatsInBox']} />}
-      {/* WhatsInBox (#050505) → FAQ (#0a0a0a) */}
-      <WaveDamping from="#050505" to="#0a0a0a" />
+      
+      {/* Box (#0a0a0a) to FAQ (#050505) */}
+      <WaveDamping from="#0a0a0a" to="#050505" />
       {isVisible('faq') && <FAQ cms={siteContent['faq']} />}
-      {/* FAQ (#0a0a0a) → B2BForm (#0a0a0a) */}
-      <SettlingContours from="#0a0a0a" to="#0a0a0a" />
+      
+      {/* FAQ (#050505) to B2B Form (#050505) */}
+      <SettlingContours from="#050505" to="#050505" />
       {isVisible('b2b') && <B2BForm cms={siteContent['b2b']} />}
+      
       {isVisible('footer') && <Footer cms={siteContent['footer']} />}
       <CookieBanner />
     </main>
