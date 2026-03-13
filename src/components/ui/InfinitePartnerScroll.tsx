@@ -3,6 +3,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 
 const logos = [
   { src: '/images/partners-logo/20.jpg', alt: 'Partner 1' },
@@ -12,6 +13,7 @@ const logos = [
 ];
 
 export default function InfinitePartnerScroll() {
+  const t = useTranslations('partners');
   // Duplicate logos to create a seamless infinite loop
   const scrollItems = [...logos, ...logos, ...logos, ...logos];
 
@@ -21,7 +23,7 @@ export default function InfinitePartnerScroll() {
       <div className="flex justify-center mb-6">
         <div className="px-4 py-1.5 bg-[#050505] border border-[#1a1a1a] rounded-full flex items-center gap-2 shadow-[0_0_15px_rgba(0,0,0,0.5)]">
           <div className="w-1.5 h-1.5 rounded-full bg-lime-400 animate-pulse" />
-          <span className="text-[10px] text-gray-400 uppercase tracking-widest font-semibold">Доверен избор на професионалистите</span>
+          <span className="text-[10px] text-gray-400 uppercase tracking-widest font-semibold">{t('trustedBy')}</span>
         </div>
       </div>
 

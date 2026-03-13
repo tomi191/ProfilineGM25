@@ -146,7 +146,7 @@
     "a6": "Yes, we maintain a complete inventory of replacement parts including carbon brushes, backing plates, power cords, and all internal components."
   },
   "b2b": {
-    "title": "Partner with Profiline",
+    "title": "Partner with Profiline GM25",
     "desc": "We are expanding our European distribution network. If you represent a detailing academy, a wholesale distributor, or a premium retail outlet, we want to hear from you.",
     "point1Title": "Exclusive Territories",
     "point1Desc": "Secure your region with our protected distribution agreements.",
@@ -189,6 +189,9 @@
     "volume3": "200+ units / month",
     "businessTypeRequired": "Please select a business type to continue.",
     "successTitle": "Successfully Sent!"
+  },
+  "partners": {
+    "trustedBy": "Trusted by Professionals"
   },
   "cookie": {
     "message": "We use cookies to improve your experience and analyze our traffic. By continuing to use this site, you consent to our use of cookies.",
