@@ -106,10 +106,10 @@ export default function WhatsInBox({ cms }: WhatsInBoxProps) {
 
           {/* RIGHT: Inventory List */}
           <div className="lg:col-span-5 flex flex-col gap-3">
-            <div className="grid grid-cols-12 gap-4 px-4 pb-2 text-[10px] text-gray-600 font-mono uppercase tracking-widest border-b border-[#222]">
-              <div className="col-span-8">{c('articleHeader')}</div>
-              <div className="col-span-2 text-center">{c('qtyHeader')}</div>
-              <div className="col-span-2 text-right">{c('statusHeader')}</div>
+            <div className="hidden sm:grid grid-cols-12 gap-4 px-4 pb-2 text-[10px] text-gray-600 font-mono uppercase tracking-widest border-b border-[#222]">
+              <div className="col-span-8">Артикул</div>
+              <div className="col-span-2 text-center">Кол.</div>
+              <div className="col-span-2 text-right">Статус</div>
             </div>
 
             {items.map((item, i) => {
@@ -120,13 +120,13 @@ export default function WhatsInBox({ cms }: WhatsInBoxProps) {
                   initial={{ opacity: 0, x: 30 }}
                   animate={isInView ? { opacity: 1, x: 0 } : {}}
                   transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="group grid grid-cols-12 gap-4 items-center px-4 py-4 bg-[#050505] border border-[#1a1a1a] rounded-xl hover:border-lime-500/30 hover:bg-[#111] transition-all duration-300"
+                  className="group flex flex-col sm:grid sm:grid-cols-12 gap-4 items-start sm:items-center px-4 py-4 bg-[#050505] border border-[#1a1a1a] rounded-xl hover:border-lime-500/30 hover:bg-[#111] transition-all duration-300"
                 >
-                  <div className="col-span-8 flex items-center gap-4">
+                  <div className="sm:col-span-8 flex items-center gap-4 w-full">
                     <div className="w-10 h-10 rounded-lg bg-[#111] border border-[#222] group-hover:border-lime-500/50 flex items-center justify-center flex-shrink-0 transition-colors">
                       <Icon className="w-4 h-4 text-lime-400" />
                     </div>
-                    <div className="flex flex-col">
+                    <div className="flex flex-col flex-grow">
                       <span className="text-sm font-bold text-white group-hover:text-lime-50 transition-colors">
                         {c(item.key)}
                       </span>
@@ -136,12 +136,20 @@ export default function WhatsInBox({ cms }: WhatsInBoxProps) {
                     </div>
                   </div>
                   
-                  <div className="col-span-2 text-center text-sm font-mono text-gray-300">
+                  <div className="hidden sm:block sm:col-span-2 text-center text-sm font-mono text-gray-300">
                     {item.qty}
                   </div>
                   
-                  <div className="col-span-2 text-right">
-                    <div className="w-2 h-2 rounded-full bg-lime-500 ml-auto shadow-[0_0_8px_rgba(163,230,53,0.6)]" />
+                  <div className="hidden sm:flex sm:col-span-2 justify-end">
+                    <div className="w-2 h-2 rounded-full bg-lime-500 shadow-[0_0_8px_rgba(163,230,53,0.6)]" />
+                  </div>
+
+                  {/* Mobile Stats Row */}
+                  <div className="flex sm:hidden items-center justify-between w-full pt-3 border-t border-[#1a1a1a] mt-1">
+                    <div className="text-[10px] text-gray-500 font-mono uppercase tracking-widest">Количество: <span className="text-gray-300 text-xs ml-1">{item.qty}</span></div>
+                    <div className="flex items-center gap-2 text-[10px] text-gray-500 font-mono uppercase tracking-widest">
+                      Статус: <div className="w-1.5 h-1.5 rounded-full bg-lime-500 shadow-[0_0_8px_rgba(163,230,53,0.6)]" />
+                    </div>
                   </div>
                 </motion.div>
               );

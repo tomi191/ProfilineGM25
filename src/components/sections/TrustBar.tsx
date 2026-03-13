@@ -153,11 +153,11 @@ export default function TrustBar({ cms }: TrustBarProps) {
       </div>
 
       <div className="mx-auto max-w-7xl px-6 relative z-10">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-5 gap-y-12 gap-x-4 lg:gap-8">
           {trustItems.map(({ key, Icon }, i) => (
             <div 
               key={key} 
-              className={`flex flex-col items-center text-center group ${i === 4 ? 'sm:col-span-2 lg:col-span-1' : ''}`}
+              className={`flex flex-col items-center text-center group ${i === 4 ? 'col-span-2 lg:col-span-1' : ''}`}
             >
               {/* Minimalist Icon */}
               <div className="mb-6 relative flex items-center justify-center">

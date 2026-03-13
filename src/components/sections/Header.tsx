@@ -42,6 +42,7 @@ export default function Header() {
   };
 
   return (
+    <>
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
@@ -112,8 +113,9 @@ export default function Header() {
           </div>
         </div>
       </div>
+    </header>
 
-      {/* Mobile overlay menu */}
+      {/* Mobile overlay menu - Moved OUTSIDE header to avoid stacking context issues from backdrop-blur */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
@@ -121,7 +123,7 @@ export default function Header() {
             animate={{opacity: 1}}
             exit={{opacity: 0}}
             transition={{duration: 0.3}}
-            className="fixed inset-0 z-50 bg-[#050505]/98 backdrop-blur-xl flex flex-col md:hidden"
+            className="fixed inset-0 z-[100] bg-[#050505]/98 backdrop-blur-xl flex flex-col md:hidden"
           >
             {/* Mobile Menu Header */}
             <div className="flex items-center justify-between px-6 py-5 border-b border-[#1a1a1a]">
@@ -187,6 +189,6 @@ export default function Header() {
           </motion.div>
         )}
       </AnimatePresence>
-    </header>
+    </>
   );
 }
