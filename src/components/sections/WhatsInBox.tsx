@@ -64,7 +64,7 @@ export default function WhatsInBox({ cms }: WhatsInBoxProps) {
             className="flex items-center gap-3 text-xs text-gray-500 font-mono uppercase bg-[#111] px-4 py-2 rounded-lg border border-[#222]"
           >
             <ScanLine className="w-4 h-4 text-lime-400 animate-pulse" />
-            <span>Стандартен комплект</span>
+            <span>{c('standardKit')}</span>
           </motion.div>
         </div>
 
@@ -107,9 +107,9 @@ export default function WhatsInBox({ cms }: WhatsInBoxProps) {
           {/* RIGHT: Inventory List */}
           <div className="lg:col-span-5 flex flex-col gap-3">
             <div className="grid grid-cols-12 gap-4 px-4 pb-2 text-[10px] text-gray-600 font-mono uppercase tracking-widest border-b border-[#222]">
-              <div className="col-span-8">Артикул</div>
-              <div className="col-span-2 text-center">Кол.</div>
-              <div className="col-span-2 text-right">Статус</div>
+              <div className="col-span-8">{c('articleHeader')}</div>
+              <div className="col-span-2 text-center">{c('qtyHeader')}</div>
+              <div className="col-span-2 text-right">{c('statusHeader')}</div>
             </div>
 
             {items.map((item, i) => {

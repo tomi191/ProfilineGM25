@@ -4,14 +4,21 @@
     "specs": "Specifications",
     "gallery": "Gallery",
     "faq": "FAQ",
-    "contact": "Contact"
+    "contact": "Contact",
+    "b2bCta": "B2B Partnership"
   },
   "hero": {
     "subtitle": "Profiline GM25 Dual Action Polisher",
     "title1": "PROFILINE GM25",
     "title2": "Flawless Correction. No Compromise.",
     "desc": "Engineered for professionals. Extreme cutting power combined with perfect balance for 8-hour shifts.",
-    "cta": "Become a Distributor"
+    "cta": "Become a Distributor",
+    "badge": "Industrial Standard 2026",
+    "headline": "Engineered for 8-Hour Shifts.",
+    "heroDesc": "Extreme cutting power with 25mm orbit. No compromise on quality. Built for detailing academies and professional studios.",
+    "ctaButton": "Apply for B2B Partnership",
+    "ctaTrust": "Protected territories and preferential margins",
+    "scrollDown": "Scroll down"
   },
   "trust": {
     "item1": "Engineered in Bulgaria",
@@ -28,6 +35,7 @@
   "gallery": {
     "title": "See the GM25 Up Close",
     "desc": "Explore every detail of the Profiline GM25 from multiple angles.",
+    "badge": "Gallery",
     "photoCounter": "{current} / {total}",
     "photos": [
       {
@@ -88,7 +96,11 @@
     "plates": "Backing Plates",
     "platesValue": "5\" & 6\"",
     "speed": "Speed Range",
-    "speedValue": "6-Speed"
+    "speedValue": "6-Speed",
+    "badge": "Specifications",
+    "orbitLabel": "Orbit",
+    "motorLabel": "Motor",
+    "ceCertified": "CE Certified"
   },
   "performance": {
     "title1": "Zero Vibration. Perfect Balance.",
@@ -97,7 +109,13 @@
     "list2": "Progressive trigger mechanism",
     "list3": "6-meter heavy-duty flexible cable",
     "title2": "Unstoppable Cutting Power.",
-    "desc2": "The massive 25mm orbital throw combined with our proprietary 1200W motor means you can remove deep defects faster than ever before. It maintains pad rotation even on complex curves and under heavy pressure."
+    "desc2": "The massive 25mm orbital throw combined with our proprietary 1200W motor means you can remove deep defects faster than ever before. It maintains pad rotation even on complex curves and under heavy pressure.",
+    "badge1": "Ergonomics",
+    "badge2": "Engineering",
+    "copperWindings": "Copper Windings",
+    "cncMachining": "CNC Machining",
+    "orbitalThrow": "Orbital Throw",
+    "peakPower": "Peak Power"
   },
   "box": {
     "title": "What's in the Box",
@@ -105,10 +123,15 @@
     "item2": "125mm (5\") Backing Plate",
     "item3": "150mm (6\") Backing Plate",
     "item4": "User Manual",
-    "item5": "Warranty Card"
+    "item5": "Warranty Card",
+    "standardKit": "Standard Kit",
+    "articleHeader": "Article",
+    "qtyHeader": "Qty.",
+    "statusHeader": "Status"
   },
   "faq": {
     "title": "Frequently Asked Questions",
+    "desc": "Access our technical knowledge base. Everything you need to know about integrating the Profiline GM25 into your business.",
     "q1": "What is the warranty period for the Profiline GM25?",
     "a1": "The GM25 comes with a comprehensive 2-year warranty covering material and workmanship defects across all European markets.",
     "q2": "What backing plates are included?",
@@ -142,7 +165,30 @@
     "formSubmit": "Submit Application",
     "formSending": "Sending...",
     "formSuccess": "Application received! We will contact you within 48 hours.",
-    "formError": "There was an error sending your application. Please try again."
+    "formError": "There was an error sending your application. Please try again.",
+    "badge": "Official Partnership",
+    "benefit1Title": "High B2B Margins",
+    "benefit1Desc": "Direct from the manufacturer. No middlemen, with guaranteed price protection for your region.",
+    "benefit2Title": "Priority Logistics",
+    "benefit2Desc": "European warehouse stock and express delivery to your door or warehouse.",
+    "testimonialText": "Since switching to the Profiline GM25 in our academy, the rate of defective machines has dropped to zero. Trainee fatigue is drastically lower thanks to the zero vibrations. An exceptional industrial tool.",
+    "testimonialInitials": "GA",
+    "testimonialName": "Georgi Angelov",
+    "testimonialRole": "Head Instructor, Detailing Academy",
+    "formTitle": "Distribution Application",
+    "formSubtitle": "Fill in your details and our B2B team will contact you within 48 hours.",
+    "businessTypeLabel": "What is your business type?",
+    "businessStudio": "Detailing Studio",
+    "businessRetail": "Online Retailer",
+    "businessWholesale": "Wholesale Distributor",
+    "namePlaceholder": "John Smith",
+    "companyPlaceholder": "Company name",
+    "countryPlaceholder": "Country",
+    "volume1": "10 - 50 units / month",
+    "volume2": "50 - 200 units / month",
+    "volume3": "200+ units / month",
+    "businessTypeRequired": "Please select a business type to continue.",
+    "successTitle": "Successfully Sent!"
   },
   "cookie": {
     "message": "We use cookies to improve your experience and analyze our traffic. By continuing to use this site, you consent to our use of cookies.",

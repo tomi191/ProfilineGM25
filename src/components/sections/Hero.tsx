@@ -97,7 +97,7 @@ export default function Hero({ cms }: HeroProps) {
         >
           <div className="w-2 h-2 rounded-full bg-lime-400 animate-pulse" />
           <span className="text-lime-400 uppercase tracking-[0.2em] text-xs font-bold">
-            Индустриален Стандарт 2026
+            {c('badge')}
           </span>
         </motion.div>
 
@@ -111,7 +111,7 @@ export default function Hero({ cms }: HeroProps) {
           PROFILINE GM25
           <br />
           <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl bg-gradient-to-r from-gray-100 via-gray-300 to-gray-500 bg-clip-text text-transparent block mt-2">
-            Проектирана за 8-часови натоварвания.
+            {c('headline')}
           </span>
         </motion.h1>
 
@@ -122,8 +122,7 @@ export default function Hero({ cms }: HeroProps) {
           transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           className="text-lg md:text-xl text-[#888] max-w-2xl mx-auto mb-12 font-medium leading-relaxed"
         >
-          Екстремна режеща сила с 25mm орбита. Без компромиси в качеството. 
-          Създадена за детайлинг академии и професионални студия.
+          {c('heroDesc')}
         </motion.p>
 
         {/* CTA Area */}
@@ -137,7 +136,7 @@ export default function Hero({ cms }: HeroProps) {
             onClick={() => scrollTo('#b2b-section')}
             className={`group relative inline-flex items-center gap-3 bg-[#A3E635] text-black font-bold px-8 py-4 rounded-xl transition-all duration-300 hover:bg-[#b0f240] hover:scale-105 cursor-pointer ${glowActive ? 'shadow-[0_0_40px_rgba(163,230,53,0.3)]' : ''}`}
           >
-            <span className="text-sm md:text-base uppercase tracking-wider">Заяви B2B Партньорство</span>
+            <span className="text-sm md:text-base uppercase tracking-wider">{c('ctaButton')}</span>
             <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" strokeWidth={3} />
             
             {/* Inner glow line */}
@@ -147,7 +146,7 @@ export default function Hero({ cms }: HeroProps) {
           {/* Micro Trust */}
           <div className="flex items-center gap-2 text-xs text-gray-500 mt-3 font-medium">
             <ShieldCheck className="w-4 h-4 text-lime-500/70" />
-            <span>Защитени територии и преференциални маржове</span>
+            <span>{c('ctaTrust')}</span>
           </div>
         </motion.div>
       </div>
@@ -159,7 +158,7 @@ export default function Hero({ cms }: HeroProps) {
         transition={{ delay: 1 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center"
       >
-        <span className="text-[10px] text-gray-600 uppercase tracking-widest mb-4">Скролни надолу</span>
+        <span className="text-[10px] text-gray-600 uppercase tracking-widest mb-4">{c('scrollDown')}</span>
         <div className="w-[1px] h-16 bg-gradient-to-b from-lime-500/50 to-transparent relative overflow-hidden">
           <motion.div 
             animate={{ y: ['-100%', '100%'] }}

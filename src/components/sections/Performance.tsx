@@ -71,7 +71,7 @@ export default function Performance({ cms }: PerformanceProps) {
           <div className="w-full lg:w-1/2">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#111] border border-[#222] mb-6">
               <Activity className="w-3.5 h-3.5 text-lime-400" />
-              <span className="text-[10px] text-gray-400 uppercase tracking-wider font-semibold">Ергономика</span>
+              <span className="text-[10px] text-gray-400 uppercase tracking-wider font-semibold">{c('badge1')}</span>
             </div>
             <h3 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-6 tracking-tight text-white">
               {c('title1')}
@@ -126,7 +126,7 @@ export default function Performance({ cms }: PerformanceProps) {
                   <div className="w-1 h-1 bg-lime-400 rounded-full" />
                 </div>
                 <div className="absolute top-1.5 left-3 w-16 h-[1px] bg-lime-400/50" />
-                <span className="absolute top-0 left-20 text-[9px] text-lime-400 uppercase tracking-widest font-mono whitespace-nowrap bg-black/50 px-1">Медни намотки</span>
+                <span className="absolute top-0 left-20 text-[9px] text-lime-400 uppercase tracking-widest font-mono whitespace-nowrap bg-black/50 px-1">{c('copperWindings')}</span>
               </div>
 
               <div className="absolute bottom-1/3 right-1/4 group-hover:translate-y-[10px] transition-transform duration-500">
@@ -134,7 +134,7 @@ export default function Performance({ cms }: PerformanceProps) {
                   <div className="w-1 h-1 bg-lime-400 rounded-full" />
                 </div>
                 <div className="absolute top-1.5 right-3 w-16 h-[1px] bg-lime-400/50" />
-                <span className="absolute top-0 right-20 text-[9px] text-lime-400 uppercase tracking-widest font-mono whitespace-nowrap bg-black/50 px-1">CNC Фрезоване</span>
+                <span className="absolute top-0 right-20 text-[9px] text-lime-400 uppercase tracking-widest font-mono whitespace-nowrap bg-black/50 px-1">{c('cncMachining')}</span>
               </div>
 
               <div className="absolute top-4 right-4 flex items-center gap-2 border border-[#222] bg-[#0a0a0a]/80 px-2 py-1 rounded backdrop-blur-md">
@@ -150,7 +150,7 @@ export default function Performance({ cms }: PerformanceProps) {
           <div className="w-full lg:w-1/2">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#111] border border-[#222] mb-6">
               <Settings2 className="w-3.5 h-3.5 text-lime-400" />
-              <span className="text-[10px] text-gray-400 uppercase tracking-wider font-semibold">Инженеринг</span>
+              <span className="text-[10px] text-gray-400 uppercase tracking-wider font-semibold">{c('badge2')}</span>
             </div>
             <h3 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-6 tracking-tight text-white">
               {c('title2')}
@@ -163,11 +163,11 @@ export default function Performance({ cms }: PerformanceProps) {
             <div className="grid grid-cols-2 gap-4 mt-8">
               <div className="bg-[#0a0a0a] border border-[#1a1a1a] p-4 rounded-xl">
                 <div className="text-2xl font-bold text-white mb-1">25<span className="text-lime-400 text-lg">mm</span></div>
-                <div className="text-xs text-gray-500 uppercase tracking-wider font-semibold">Орбитален Ход</div>
+                <div className="text-xs text-gray-500 uppercase tracking-wider font-semibold">{c('orbitalThrow')}</div>
               </div>
               <div className="bg-[#0a0a0a] border border-[#1a1a1a] p-4 rounded-xl">
                 <div className="text-2xl font-bold text-white mb-1">1200<span className="text-lime-400 text-lg">W</span></div>
-                <div className="text-xs text-gray-500 uppercase tracking-wider font-semibold">Пикова Мощност</div>
+                <div className="text-xs text-gray-500 uppercase tracking-wider font-semibold">{c('peakPower')}</div>
               </div>
             </div>
           </div>

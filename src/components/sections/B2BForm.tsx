@@ -101,7 +101,7 @@ export default function B2BForm({cms}: B2BFormProps) {
             <div>
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-lime-500/5 border border-lime-500/20 mb-6">
                 <ShieldCheck className="w-3.5 h-3.5 text-lime-400" />
-                <span className="text-[10px] text-lime-400 uppercase tracking-wider font-semibold">Официално партньорство</span>
+                <span className="text-[10px] text-lime-400 uppercase tracking-wider font-semibold">{t('badge')}</span>
               </div>
               <h2 className="text-4xl md:text-5xl font-extrabold mb-6 tracking-tight text-white">{c('title')}</h2>
               <p className="text-gray-400 text-lg mb-12 leading-relaxed">{c('desc')}</p>
@@ -113,8 +113,8 @@ export default function B2BForm({cms}: B2BFormProps) {
                     <Percent className="w-5 h-5 text-lime-400" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-white text-lg mb-1">Високи B2B Маржове</h4>
-                    <p className="text-gray-400 text-sm leading-relaxed">Директно от производителя. Без прекупвачи, с гарантирана ценова защита за вашия регион.</p>
+                    <h4 className="font-bold text-white text-lg mb-1">{t('benefit1Title')}</h4>
+                    <p className="text-gray-400 text-sm leading-relaxed">{t('benefit1Desc')}</p>
                   </div>
                 </div>
                 <div className="flex gap-5">
@@ -122,8 +122,8 @@ export default function B2BForm({cms}: B2BFormProps) {
                     <Truck className="w-5 h-5 text-lime-400" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-white text-lg mb-1">Приоритетна Логистика</h4>
-                    <p className="text-gray-400 text-sm leading-relaxed">Наличности на склад в Европа и експресна доставка до вашата врата или склад.</p>
+                    <h4 className="font-bold text-white text-lg mb-1">{t('benefit2Title')}</h4>
+                    <p className="text-gray-400 text-sm leading-relaxed">{t('benefit2Desc')}</p>
                   </div>
                 </div>
               </div>
@@ -133,15 +133,15 @@ export default function B2BForm({cms}: B2BFormProps) {
             <div className="relative bg-[#0a0a0a] border border-[#1a1a1a] p-8 rounded-2xl">
               <Quote className="absolute top-6 right-6 w-12 h-12 text-[#111] rotate-180" />
               <p className="text-gray-300 italic mb-6 relative z-10 text-sm leading-relaxed">
-                "Откакто преминахме към Profiline GM25 в нашата академия, процентът на дефектирали машини спадна до нула. Умората на курсистите е драстично по-малка благодарение на нулевите вибрации. Изключителен индустриален инструмент."
+                &ldquo;{t('testimonialText')}&rdquo;
               </p>
               <div className="flex items-center gap-4">
                 <div className="w-10 h-10 rounded-full bg-[#1a1a1a] border border-[#222] flex items-center justify-center">
-                  <span className="text-gray-500 font-bold text-xs">ГА</span>
+                  <span className="text-gray-500 font-bold text-xs">{t('testimonialInitials')}</span>
                 </div>
                 <div>
-                  <div className="text-white font-bold text-sm">Георги Ангелов</div>
-                  <div className="text-lime-400 text-xs">Главен Инструктор, Detailing Academy</div>
+                  <div className="text-white font-bold text-sm">{t('testimonialName')}</div>
+                  <div className="text-lime-400 text-xs">{t('testimonialRole')}</div>
                 </div>
               </div>
             </div>
@@ -160,8 +160,8 @@ export default function B2BForm({cms}: B2BFormProps) {
             <div className="relative bg-[#050505] border border-[#111] rounded-[30px] p-6 sm:p-10 lg:p-12 shadow-2xl">
               
               <div className="mb-10 text-center">
-                <h3 className="text-2xl font-bold text-white mb-2">Заявка за Дистрибуция</h3>
-                <p className="text-gray-500 text-sm">Попълнете данните си и нашият B2B екип ще се свърже с вас до 48 часа.</p>
+                <h3 className="text-2xl font-bold text-white mb-2">{t('formTitle')}</h3>
+                <p className="text-gray-500 text-sm">{t('formSubtitle')}</p>
               </div>
 
               <form onSubmit={handleSubmit} className="space-y-8">
@@ -169,13 +169,13 @@ export default function B2BForm({cms}: B2BFormProps) {
                 {/* Qualification: Business Type */}
                 <div className="space-y-3">
                   <label className="block text-[11px] font-semibold text-gray-500 uppercase tracking-widest">
-                    Какъв е вашият тип бизнес? <span className="text-lime-500">*</span>
+                    {t('businessTypeLabel')} <span className="text-lime-500">*</span>
                   </label>
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                     {[
-                      { id: 'studio', label: 'Детайлинг Студио' },
-                      { id: 'retail', label: 'Онлайн Магазин' },
-                      { id: 'wholesale', label: 'Дистрибутор' }
+                      { id: 'studio', label: t('businessStudio') },
+                      { id: 'retail', label: t('businessRetail') },
+                      { id: 'wholesale', label: t('businessWholesale') }
                     ].map((type) => (
                       <button
                         key={type.id}
@@ -201,7 +201,7 @@ export default function B2BForm({cms}: B2BFormProps) {
                     <label className="block text-[11px] font-semibold text-gray-500 uppercase tracking-widest ml-1">
                       {t('formName')}
                     </label>
-                    <input type="text" name="name" required className={inputClasses} disabled={status === 'submitting' || status === 'success'} placeholder="Иван Иванов" />
+                    <input type="text" name="name" required className={inputClasses} disabled={status === 'submitting' || status === 'success'} placeholder={t('namePlaceholder')} />
                   </div>
                   <div className="space-y-2">
                     <label className="block text-[11px] font-semibold text-gray-500 uppercase tracking-widest ml-1">
@@ -216,13 +216,13 @@ export default function B2BForm({cms}: B2BFormProps) {
                     <label className="block text-[11px] font-semibold text-gray-500 uppercase tracking-widest ml-1">
                       {t('formCompany')}
                     </label>
-                    <input type="text" name="company" required className={inputClasses} disabled={status === 'submitting' || status === 'success'} placeholder="Име на фирмата" />
+                    <input type="text" name="company" required className={inputClasses} disabled={status === 'submitting' || status === 'success'} placeholder={t('companyPlaceholder')} />
                   </div>
                   <div className="space-y-2">
                     <label className="block text-[11px] font-semibold text-gray-500 uppercase tracking-widest ml-1">
                       {t('formCountry')}
                     </label>
-                    <input type="text" name="country" required className={inputClasses} disabled={status === 'submitting' || status === 'success'} placeholder="България" />
+                    <input type="text" name="country" required className={inputClasses} disabled={status === 'submitting' || status === 'success'} placeholder={t('countryPlaceholder')} />
                   </div>
                 </div>
 
@@ -234,9 +234,9 @@ export default function B2BForm({cms}: B2BFormProps) {
                     </label>
                     <select name="expected_volume" className={`${inputClasses} appearance-none text-gray-300`} disabled={status === 'submitting' || status === 'success'}>
                       <option value="">{t('formVolumeSelect')}</option>
-                      <option value="10-50">10 - 50 машини / месец</option>
-                      <option value="50-200">50 - 200 машини / месец</option>
-                      <option value="200+">200+ машини / месец</option>
+                      <option value="10-50">{t('volume1')}</option>
+                      <option value="50-200">{t('volume2')}</option>
+                      <option value="200+">{t('volume3')}</option>
                     </select>
                   </div>
                 </div>
@@ -274,7 +274,7 @@ export default function B2BForm({cms}: B2BFormProps) {
                     </span>
                   </button>
                   {!businessType && status !== 'success' && (
-                    <p className="text-center text-xs text-gray-600 mt-4">Моля, изберете тип бизнес, за да продължите.</p>
+                    <p className="text-center text-xs text-gray-600 mt-4">{t('businessTypeRequired')}</p>
                   )}
                 </motion.div>
 
@@ -297,7 +297,7 @@ export default function B2BForm({cms}: B2BFormProps) {
                   <div className="w-20 h-20 bg-lime-500/10 rounded-full flex items-center justify-center mb-6">
                     <CheckCircle2 className="w-10 h-10 text-lime-400" />
                   </div>
-                  <h3 className="text-2xl font-bold text-white mb-2">Успешно изпратено!</h3>
+                  <h3 className="text-2xl font-bold text-white mb-2">{t('successTitle')}</h3>
                   <p className="text-gray-400 text-center px-8 max-w-sm">
                     {t('formSuccess')}
                   </p>

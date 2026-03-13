@@ -96,7 +96,7 @@ export default function Gallery({ cms }: GalleryProps) {
               className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#111] border border-[#222] mb-4"
             >
               <Camera className="w-3.5 h-3.5 text-lime-400" />
-              <span className="text-[10px] text-gray-400 uppercase tracking-wider font-semibold">Галерия</span>
+              <span className="text-[10px] text-gray-400 uppercase tracking-wider font-semibold">{c('badge')}</span>
             </motion.div>
             <motion.h2
               initial={{ opacity: 0, y: 20 }}

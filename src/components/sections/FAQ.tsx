@@ -62,7 +62,7 @@ export default function FAQ({ cms }: FAQProps) {
               </h2>
               
               <p className="text-gray-400 leading-relaxed mb-10">
-                Достъп до нашата техническа база данни. Всичко, което трябва да знаете за интеграцията на Profiline GM25 във вашия бизнес.
+                {c('desc')}
               </p>
 
               {/* Decorative Support Status */}

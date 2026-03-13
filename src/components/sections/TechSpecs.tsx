@@ -128,7 +128,7 @@ export default function TechSpecs({ cms }: TechSpecsProps) {
               className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#111] border border-[#222] mb-4"
             >
               <Cog className="w-3.5 h-3.5 text-lime-400" />
-              <span className="text-[10px] text-gray-400 uppercase tracking-wider font-semibold">Спецификации</span>
+              <span className="text-[10px] text-gray-400 uppercase tracking-wider font-semibold">{c('badge')}</span>
             </motion.div>
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
@@ -160,12 +160,12 @@ export default function TechSpecs({ cms }: TechSpecsProps) {
           >
             <div className="text-right">
               <div className="text-3xl font-extrabold text-white">25<span className="text-lime-400 text-lg">mm</span></div>
-              <div className="text-xs text-gray-500 uppercase tracking-widest font-semibold">Орбита</div>
+              <div className="text-xs text-gray-500 uppercase tracking-widest font-semibold">{c('orbitLabel')}</div>
             </div>
             <div className="w-[1px] h-12 bg-[#222]" />
             <div className="text-right">
               <div className="text-3xl font-extrabold text-white">1200<span className="text-lime-400 text-lg">W</span></div>
-              <div className="text-xs text-gray-500 uppercase tracking-widest font-semibold">Мотор</div>
+              <div className="text-xs text-gray-500 uppercase tracking-widest font-semibold">{c('motorLabel')}</div>
             </div>
           </motion.div>
         </div>
@@ -195,7 +195,7 @@ export default function TechSpecs({ cms }: TechSpecsProps) {
             {/* Technical Overlay Badges */}
             <div className="absolute top-6 left-6 z-20 flex items-center gap-2 bg-[#050505]/80 backdrop-blur-md border border-[#222] px-3 py-1.5 rounded-lg">
               <ShieldCheck className="w-4 h-4 text-lime-400" />
-              <span className="text-xs text-white font-mono">CE Сертифициран</span>
+              <span className="text-xs text-white font-mono">{c('ceCertified')}</span>
             </div>
           </motion.div>
 

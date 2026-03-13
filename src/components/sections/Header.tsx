@@ -6,14 +6,13 @@ import {useTranslations} from 'next-intl';
 import {useLocale} from 'next-intl';
 import {useRouter, usePathname} from '@/i18n/navigation';
 import {motion, AnimatePresence} from 'motion/react';
-import {Menu, X} from 'lucide-react';
+import {Menu, X, Globe} from 'lucide-react';
 
 const navLinks = [
   {key: 'product', href: '#product'},
   {key: 'specs', href: '#specs'},
   {key: 'gallery', href: '#gallery'},
   {key: 'faq', href: '#faq'},
-  {key: 'contact', href: '#b2b-section'},
 ] as const;
 
 export default function Header() {
@@ -44,54 +43,71 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? 'bg-[#050505]/90 backdrop-blur-md border-b border-[#1a1a1a]'
-          : 'bg-transparent'
+          ? 'bg-[#050505]/80 backdrop-blur-xl border-b border-lime-500/10 shadow-[0_4px_30px_rgba(0,0,0,0.8)] py-2'
+          : 'bg-gradient-to-b from-[#050505]/80 to-transparent py-4'
       }`}
     >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between">
+      <div className="mx-auto max-w-[1400px] px-6">
+        <div className="flex items-center justify-between">
+          
           {/* Logo */}
-          <div className="flex-shrink-0">
+          <div className="flex-shrink-0 cursor-pointer" onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}>
             <Image
               src="/images/logo.png"
-              alt="Profiline"
-              width={150}
+              alt="Profiline GM25"
+              width={160}
               height={40}
-              className="h-8 w-auto"
+              className="h-8 w-auto object-contain"
               priority
             />
           </div>
 
-          {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-8">
+          {/* Desktop Nav */}
+          <nav className="hidden md:flex items-center gap-10">
             {navLinks.map((link) => (
               <button
                 key={link.key}
                 onClick={() => handleNavClick(link.href)}
-                className="text-sm font-medium text-gray-300 hover:text-white transition-colors cursor-pointer"
+                className="text-xs font-semibold text-gray-400 hover:text-white uppercase tracking-widest transition-colors cursor-pointer relative group"
               >
                 {t(link.key)}
+                <span className="absolute -bottom-2 left-0 w-0 h-0.5 bg-lime-400 transition-all duration-300 group-hover:w-full" />
               </button>
             ))}
           </nav>
 
-          {/* Right side: language switcher + mobile hamburger */}
-          <div className="flex items-center gap-4">
+          {/* Right side: B2B CTA + language switcher + mobile hamburger */}
+          <div className="flex items-center gap-6">
+            
+            {/* Language Switcher - Tech Style */}
             <button
               onClick={toggleLanguage}
-              className="text-sm font-medium text-gray-300 hover:text-white transition-colors px-2 py-1 rounded border border-gray-700 hover:border-gray-500 cursor-pointer"
+              className="hidden sm:flex items-center gap-2 text-xs font-mono font-bold text-gray-400 hover:text-white transition-colors cursor-pointer group"
             >
-              {locale === 'bg' ? 'EN' : 'BG'}
+              <Globe className="w-4 h-4 text-gray-500 group-hover:text-lime-400 transition-colors" />
+              <span className={locale === 'en' ? 'text-lime-400' : ''}>EN</span>
+              <span className="text-[#333]">/</span>
+              <span className={locale === 'bg' ? 'text-lime-400' : ''}>BG</span>
             </button>
 
+            {/* B2B Contact CTA - Always visible on desktop */}
             <button
-              className="md:hidden w-11 h-11 flex items-center justify-center text-gray-300 hover:text-white cursor-pointer"
+              onClick={() => handleNavClick('#b2b-section')}
+              className="hidden md:flex items-center gap-2 bg-[#111] border border-[#222] hover:border-lime-500/50 hover:bg-[#1a1a1a] text-white text-xs font-bold uppercase tracking-widest px-5 py-2.5 rounded-lg transition-all duration-300 group cursor-pointer"
+            >
+              <div className="w-1.5 h-1.5 rounded-full bg-lime-400 animate-pulse" />
+              {t('b2bCta')}
+            </button>
+
+            {/* Mobile hamburger */}
+            <button
+              className="md:hidden w-10 h-10 flex items-center justify-center text-gray-300 hover:text-lime-400 cursor-pointer bg-[#111] border border-[#222] rounded-lg transition-colors"
               onClick={() => setMobileOpen(true)}
               aria-label="Open menu"
             >
-              <Menu size={24} />
+              <Menu size={20} />
             </button>
           </div>
         </div>

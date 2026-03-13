@@ -20,6 +20,7 @@ interface FooterProps {
 
 export default function Footer({ cms }: FooterProps) {
   const t = useTranslations('footer');
+  const tNav = useTranslations('nav');
   const c = (key: string) => {
     const cmsField = cmsKeyMap[key] ?? key;
     if (cms && cms[cmsField] !== undefined) return String(cms[cmsField]);
@@ -123,10 +124,10 @@ export default function Footer({ cms }: FooterProps) {
               </h4>
               <ul className="space-y-4">
                 {[
-                  { name: 'Продукт', target: '#top' },
-                  { name: 'Галерия', target: '#gallery' },
-                  { name: 'Спецификации', target: '#specs' },
-                  { name: 'Въпроси', target: '#faq' }
+                  { name: tNav('product'), target: '#top' },
+                  { name: tNav('gallery'), target: '#gallery' },
+                  { name: tNav('specs'), target: '#specs' },
+                  { name: tNav('faq'), target: '#faq' }
                 ].map((link) => (
                   <li key={link.name}>
                     <button onClick={() => scrollTo(link.target)} className="group flex items-center text-sm text-gray-400 hover:text-white transition-colors cursor-pointer">
