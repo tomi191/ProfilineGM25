@@ -43,7 +43,7 @@ export async function generateMetadata({params}: {params: Promise<{locale: strin
         : 'Professional orbital polisher with 1200W motor and 25mm throw.',
       url: `https://profilinegm25.eu/${locale}`,
       siteName: 'Profiline GM25',
-      images: [{ url: '/images/product/gm25-side-view.jpg', width: 1200, height: 630, alt: 'Profiline GM25 Polisher' }],
+      images: [{ url: '/images/ai-webp/hero-cinematic.webp', width: 1200, height: 630, alt: 'Profiline GM25 Polisher' }],
       locale: isBg ? 'bg_BG' : 'en_US',
       type: 'website',
     },
@@ -53,7 +53,7 @@ export async function generateMetadata({params}: {params: Promise<{locale: strin
       description: isBg
         ? 'Професионална полираща машина с 1200W мотор.'
         : 'Professional orbital polisher with 1200W motor.',
-      images: ['/images/product/gm25-side-view.jpg'],
+      images: ['/images/ai-webp/hero-cinematic.webp'],
     },
     alternates: {
       canonical: `https://profilinegm25.eu/${locale}`,

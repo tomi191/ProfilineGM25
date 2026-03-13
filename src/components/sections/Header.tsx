@@ -9,7 +9,7 @@ import {motion, AnimatePresence} from 'motion/react';
 import {Menu, X, Globe} from 'lucide-react';
 
 const navLinks = [
-  {key: 'product', href: '#product'},
+  {key: 'performance', href: '#performance'},
   {key: 'specs', href: '#specs'},
   {key: 'gallery', href: '#gallery'},
   {key: 'faq', href: '#faq'},

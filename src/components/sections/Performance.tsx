@@ -28,7 +28,7 @@ export default function Performance({ cms }: PerformanceProps) {
   const y2 = useTransform(scrollYProgress, [0, 1], [-50, 50]);
 
   return (
-    <section ref={containerRef} className="relative bg-[#050505] py-32 overflow-hidden border-t border-[#111]">
+    <section id="performance" ref={containerRef} className="relative bg-[#050505] py-32 overflow-hidden border-t border-[#111]">
       
       {/* Background Tech Grid */}
       <div className="absolute inset-0 pointer-events-none opacity-20">

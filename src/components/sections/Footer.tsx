@@ -124,7 +124,7 @@ export default function Footer({ cms }: FooterProps) {
               </h4>
               <ul className="space-y-4">
                 {[
-                  { name: tNav('product'), target: '#top' },
+                  { name: tNav('performance'), target: '#performance' },
                   { name: tNav('gallery'), target: '#gallery' },
                   { name: tNav('specs'), target: '#specs' },
                   { name: tNav('faq'), target: '#faq' }
