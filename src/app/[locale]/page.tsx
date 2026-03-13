@@ -11,6 +11,7 @@ import FAQ from '@/components/sections/FAQ';
 import B2BForm from '@/components/sections/B2BForm';
 import Footer from '@/components/sections/Footer';
 import CookieBanner from '@/components/ui/CookieBanner';
+import ScrollToTop from '@/components/ui/ScrollToTop';
 import SettlingContours from '@/components/ui/SettlingContours';
 import WaveDamping from '@/components/ui/WaveDamping';
 
@@ -59,6 +60,7 @@ export default async function Home({params}: {params: Promise<{locale: string}>}
       {isVisible('b2b') && <B2BForm cms={siteContent['b2b']} />}
       
       {isVisible('footer') && <Footer cms={siteContent['footer']} />}
+      <ScrollToTop />
       <CookieBanner />
     </main>
   );
