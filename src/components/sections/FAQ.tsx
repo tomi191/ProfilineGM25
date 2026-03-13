@@ -32,7 +32,7 @@ export default function FAQ({cms}: FAQProps) {
   }
 
   return (
-    <section id="faq" className="bg-[#0a0a0a] py-24 border-t border-[#1a1a1a]">
+    <section id="faq" className="bg-[#0a0a0a] py-24">
       <div className="mx-auto max-w-4xl px-6">
         <motion.h2
           initial={{opacity: 0, y: 20}}

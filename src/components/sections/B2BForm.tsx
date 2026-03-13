@@ -73,7 +73,7 @@ export default function B2BForm({cms}: B2BFormProps) {
   return (
     <section
       id="b2b-section"
-      className="bg-[#0a0a0a] py-24 border-t border-[#1a1a1a] scroll-mt-20"
+      className="bg-[#0a0a0a] py-24 scroll-mt-20"
     >
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid md:grid-cols-2 gap-16">

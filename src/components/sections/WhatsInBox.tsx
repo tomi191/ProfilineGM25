@@ -25,7 +25,7 @@ export default function WhatsInBox({cms}: WhatsInBoxProps) {
   };
 
   return (
-    <section className="bg-[#050505] py-24 border-t border-[#1a1a1a]">
+    <section className="bg-[#050505] py-24">
       <div className="mx-auto max-w-7xl px-6">
         {/* Title */}
         <motion.h2

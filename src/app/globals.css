@@ -56,3 +56,22 @@ body {
 .cta-glow {
   animation: cta-glow 2s ease-in-out 3;
 }
+
+/* Section divider animations */
+@keyframes settle-breathe {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(1.5px); }
+}
+
+@keyframes particle-drift {
+  0%   { opacity: 0; transform: translateX(-20px); }
+  20%  { opacity: 0.5; }
+  50%  { opacity: 0.7; }
+  80%  { opacity: 0.3; }
+  100% { opacity: 0; transform: translateX(40px); }
+}
+
+@keyframes micro-pulse {
+  0%, 100% { opacity: 0.2; r: 1.5; }
+  50% { opacity: 0.8; r: 2.5; }
+}

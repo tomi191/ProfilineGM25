@@ -2,8 +2,8 @@ import {NextIntlClientProvider} from 'next-intl';
 import {getMessages, setRequestLocale} from 'next-intl/server';
 import {routing} from '@/i18n/routing';
 import {Inter} from 'next/font/google';
-import {Metadata} from 'next';
-import {ProductJsonLd, FAQJsonLd} from '@/components/seo/JsonLd';
+import {Metadata, Viewport} from 'next';
+import {WebSiteJsonLd, ProductJsonLd, FAQJsonLd} from '@/components/seo/JsonLd';
 import GoogleAnalytics from '@/components/seo/GoogleAnalytics';
 import '../globals.css';
 
@@ -12,6 +12,13 @@ const inter = Inter({subsets: ['latin', 'cyrillic']});
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({locale}));
 }
+
+export const viewport: Viewport = {
+  themeColor: '#A3E635',
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+};
 
 export async function generateMetadata({params}: {params: Promise<{locale: string}>}): Promise<Metadata> {
   const {locale} = await params;
@@ -55,6 +62,17 @@ export async function generateMetadata({params}: {params: Promise<{locale: strin
         'en': 'https://profilinegm25.eu/en',
       },
     },
+    icons: {
+      icon: [
+        { url: '/favicon.ico', sizes: '32x32' },
+        { url: '/icon-192.png', sizes: '192x192', type: 'image/png' },
+      ],
+      apple: [{ url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],
+    },
+    manifest: '/manifest.webmanifest',
+    other: {
+      'msapplication-TileColor': '#050505',
+    },
   };
 }
 
@@ -74,6 +92,7 @@ export default async function LocaleLayout({
       <body className={`${inter.className} bg-[#050505] text-white antialiased`}>
         <NextIntlClientProvider messages={messages}>
           <GoogleAnalytics />
+          <WebSiteJsonLd locale={locale} />
           <ProductJsonLd locale={locale} />
           <FAQJsonLd locale={locale} />
           {children}

@@ -1,3 +1,27 @@
+export function WebSiteJsonLd({ locale }: { locale: string }) {
+  const isBg = locale === 'bg';
+
+  const websiteData = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'Profiline GM25',
+    alternateName: isBg ? 'Профилайн GM25' : undefined,
+    url: 'https://profilinegm25.eu',
+    inLanguage: [isBg ? 'bg' : 'en'],
+    publisher: {
+      '@type': 'Organization',
+      name: 'Profiline Tools',
+      url: 'https://profilinegm25.eu',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://profilinegm25.eu/images/logo.png',
+      },
+    },
+  };
+
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteData) }} />;
+}
+
 export function ProductJsonLd({ locale }: { locale: string }) {
   const isBg = locale === 'bg';
 
