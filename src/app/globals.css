@@ -38,3 +38,21 @@ body {
 .gallery-swiper .swiper-pagination-bullet-active {
   background: #A3E635 !important;
 }
+
+/* Hide swiper nav arrows on mobile — swipe is the primary gesture */
+@media (max-width: 768px) {
+  .gallery-swiper .swiper-button-next,
+  .gallery-swiper .swiper-button-prev {
+    display: none;
+  }
+}
+
+/* CTA glow pulse animation */
+@keyframes cta-glow {
+  0%, 100% { box-shadow: 0 0 15px rgba(163, 230, 53, 0.1), inset 0 0 15px rgba(163, 230, 53, 0.05); }
+  50% { box-shadow: 0 0 30px rgba(163, 230, 53, 0.25), 0 0 60px rgba(163, 230, 53, 0.08), inset 0 0 20px rgba(163, 230, 53, 0.08); }
+}
+
+.cta-glow {
+  animation: cta-glow 2s ease-in-out 3;
+}

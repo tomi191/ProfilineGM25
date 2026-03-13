@@ -1,6 +1,6 @@
 'use client';
 
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useCallback} from 'react';
 import Image from 'next/image';
 import {useTranslations} from 'next-intl';
 import {motion} from 'motion/react';
@@ -22,6 +22,18 @@ export default function Hero({cms}: HeroProps) {
   const c = (key: string) =>
     cms && cms[key] !== undefined ? String(cms[key]) : t(key);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [glowActive, setGlowActive] = useState(false);
+
+  // Trigger glow after hero entrance animation completes (~1.15s)
+  const startGlow = useCallback(() => {
+    if (!glowActive) {
+      setTimeout(() => setGlowActive(true), 1150);
+    }
+  }, [glowActive]);
+
+  useEffect(() => {
+    startGlow();
+  }, [startGlow]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -38,7 +50,7 @@ export default function Hero({cms}: HeroProps) {
   };
 
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden">
       {/* Background slideshow — stacked images with CSS crossfade */}
       {heroSlides.map((slide, i) => (
         <div
@@ -75,7 +87,7 @@ export default function Hero({cms}: HeroProps) {
           initial={{opacity: 0, y: 30}}
           animate={{opacity: 1, y: 0}}
           transition={{duration: 0.6, delay: 0.25}}
-          className="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-6"
+          className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-6"
         >
           {c('title1')}
           <br />
@@ -98,7 +110,7 @@ export default function Hero({cms}: HeroProps) {
           animate={{opacity: 1, y: 0}}
           transition={{duration: 0.6, delay: 0.55}}
           onClick={() => scrollTo('#b2b-section')}
-          className="inline-flex items-center gap-2 border border-lime-400/60 text-lime-400 font-bold px-8 py-4 rounded-lg transition-all hover:bg-lime-400/10 hover:border-lime-400 hover:shadow-[0_0_20px_rgba(163,230,53,0.15)] cursor-pointer backdrop-blur-sm"
+          className={`inline-flex items-center gap-2 border border-lime-400/60 text-lime-400 font-bold px-6 sm:px-8 py-4 rounded-lg transition-all hover:bg-lime-400/10 hover:border-lime-400 hover:shadow-[0_0_20px_rgba(163,230,53,0.15)] cursor-pointer backdrop-blur-sm ${glowActive ? 'cta-glow' : ''}`}
         >
           {c('cta')}
           <ChevronRight size={20} />

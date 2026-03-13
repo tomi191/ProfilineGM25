@@ -45,7 +45,7 @@ export default function Performance({cms}: PerformanceProps) {
             transition={{duration: 0.6, delay: 0.1}}
             className="w-full md:w-1/2"
           >
-            <h3 className="text-3xl md:text-4xl font-bold mb-4">{c('title1')}</h3>
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">{c('title1')}</h3>
             <p className="text-gray-400 text-lg mb-6">{c('desc1')}</p>
             <ul className="space-y-3">
               {(['list1', 'list2', 'list3'] as const).map((key) => (
@@ -85,7 +85,7 @@ export default function Performance({cms}: PerformanceProps) {
             transition={{duration: 0.6, delay: 0.1}}
             className="w-full md:w-1/2"
           >
-            <h3 className="text-3xl md:text-4xl font-bold mb-4">{c('title2')}</h3>
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">{c('title2')}</h3>
             <p className="text-gray-400 text-lg">{c('desc2')}</p>
           </motion.div>
         </div>

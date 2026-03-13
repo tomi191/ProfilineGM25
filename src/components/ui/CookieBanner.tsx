@@ -54,20 +54,20 @@ export default function CookieBanner() {
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
             className="max-w-4xl mx-auto bg-[#111] border border-[#333] shadow-2xl rounded-2xl p-6"
           >
-            <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-              <p className="text-gray-300 text-sm md:text-base">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-6">
+              <p className="text-gray-300 text-xs sm:text-sm md:text-base text-center md:text-left">
                 {t("message")}
               </p>
-              <div className="flex items-center gap-3 shrink-0">
+              <div className="flex items-center gap-3 shrink-0 w-full md:w-auto">
                 <button
                   onClick={handleDecline}
-                  className="bg-transparent border border-gray-600 hover:border-white text-white px-6 py-2.5 rounded-lg transition-colors cursor-pointer"
+                  className="flex-1 md:flex-none bg-transparent border border-gray-600 hover:border-white text-white px-4 sm:px-6 py-2.5 rounded-lg transition-colors cursor-pointer min-h-[44px] text-sm"
                 >
                   {t("decline")}
                 </button>
                 <button
                   onClick={handleAccept}
-                  className="border border-lime-400/60 text-lime-400 font-bold px-6 py-2.5 rounded-lg transition-all hover:bg-lime-400/10 hover:border-lime-400 hover:shadow-[0_0_15px_rgba(163,230,53,0.15)] cursor-pointer"
+                  className="flex-1 md:flex-none border border-lime-400/60 text-lime-400 font-bold px-4 sm:px-6 py-2.5 rounded-lg transition-all hover:bg-lime-400/10 hover:border-lime-400 hover:shadow-[0_0_15px_rgba(163,230,53,0.15)] cursor-pointer min-h-[44px] text-sm"
                 >
                   {t("accept")}
                 </button>

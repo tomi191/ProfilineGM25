@@ -87,7 +87,7 @@ export default function Header() {
             </button>
 
             <button
-              className="md:hidden text-gray-300 hover:text-white cursor-pointer"
+              className="md:hidden w-11 h-11 flex items-center justify-center text-gray-300 hover:text-white cursor-pointer"
               onClick={() => setMobileOpen(true)}
               aria-label="Open menu"
             >
@@ -108,7 +108,7 @@ export default function Header() {
             className="fixed inset-0 z-50 bg-[#050505]/95 backdrop-blur-lg flex flex-col items-center justify-center md:hidden"
           >
             <button
-              className="absolute top-4 right-4 text-gray-300 hover:text-white cursor-pointer"
+              className="absolute top-4 right-4 w-11 h-11 flex items-center justify-center text-gray-300 hover:text-white cursor-pointer"
               onClick={() => setMobileOpen(false)}
               aria-label="Close menu"
             >

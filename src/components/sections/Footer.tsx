@@ -46,7 +46,7 @@ export default function Footer({cms}: FooterProps) {
                   href="https://www.facebook.com/profile.php?id=61579498340048"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 flex items-center justify-center bg-[#111] border border-[#222] rounded-full hover:border-lime-400 hover:bg-[#1a1a1a] transition-colors"
+                  className="w-11 h-11 flex items-center justify-center bg-[#111] border border-[#222] rounded-full hover:border-lime-400 hover:bg-[#1a1a1a] transition-colors"
                   aria-label="Facebook"
                 >
                   <svg className="w-5 h-5 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
@@ -57,7 +57,7 @@ export default function Footer({cms}: FooterProps) {
                 {/* Instagram */}
                 <a
                   href="#"
-                  className="w-10 h-10 flex items-center justify-center bg-[#111] border border-[#222] rounded-full hover:border-lime-400 hover:bg-[#1a1a1a] transition-colors"
+                  className="w-11 h-11 flex items-center justify-center bg-[#111] border border-[#222] rounded-full hover:border-lime-400 hover:bg-[#1a1a1a] transition-colors"
                   aria-label="Instagram"
                 >
                   <svg className="w-5 h-5 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
@@ -68,7 +68,7 @@ export default function Footer({cms}: FooterProps) {
                 {/* YouTube */}
                 <a
                   href="#"
-                  className="w-10 h-10 flex items-center justify-center bg-[#111] border border-[#222] rounded-full hover:border-lime-400 hover:bg-[#1a1a1a] transition-colors"
+                  className="w-11 h-11 flex items-center justify-center bg-[#111] border border-[#222] rounded-full hover:border-lime-400 hover:bg-[#1a1a1a] transition-colors"
                   aria-label="YouTube"
                 >
                   <svg className="w-5 h-5 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
@@ -145,7 +145,7 @@ export default function Footer({cms}: FooterProps) {
           </div>
 
           {/* Bottom bar */}
-          <div className="border-t border-[#1a1a1a] pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="border-t border-[#1a1a1a] pt-6 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
             <p className="text-gray-600 text-sm">{t('rights')}</p>
 
             <div className="flex items-center gap-4">

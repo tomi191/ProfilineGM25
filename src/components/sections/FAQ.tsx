@@ -60,7 +60,7 @@ export default function FAQ({cms}: FAQProps) {
               >
                 <button
                   onClick={() => setOpenIndex(isOpen ? null : i)}
-                  className="w-full flex items-center justify-between px-6 py-5 text-left cursor-pointer"
+                  className="w-full flex items-center justify-between px-4 sm:px-6 py-5 text-left cursor-pointer min-h-[44px]"
                 >
                   <span className="font-semibold text-white pr-4">{c(key)}</span>
                   <motion.span
@@ -80,7 +80,7 @@ export default function FAQ({cms}: FAQProps) {
                       exit={{height: 0, opacity: 0}}
                       transition={{duration: 0.3, ease: 'easeInOut'}}
                     >
-                      <div className="px-6 pb-5 text-gray-400">
+                      <div className="px-4 sm:px-6 pb-5 text-gray-400">
                         {c(answerKey)}
                       </div>
                     </motion.div>

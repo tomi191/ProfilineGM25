@@ -1,6 +1,6 @@
 'use client';
 
-import {useState, FormEvent} from 'react';
+import {useState, useRef, FormEvent} from 'react';
 import {useTranslations, useLocale} from 'next-intl';
 import {motion} from 'motion/react';
 import {CheckCircle2, AlertCircle, Loader2} from 'lucide-react';
@@ -34,6 +34,8 @@ export default function B2BForm({cms}: B2BFormProps) {
   };
   const locale = useLocale();
   const [status, setStatus] = useState<FormStatus>('idle');
+  const [submitGlow, setSubmitGlow] = useState(false);
+  const submitGlowFired = useRef(false);
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -108,7 +110,7 @@ export default function B2BForm({cms}: B2BFormProps) {
             transition={{duration: 0.6, delay: 0.1}}
             className="relative"
           >
-            <div className="bg-[#050505] border border-[#1a1a1a] rounded-2xl p-8 md:p-10">
+            <div className="bg-[#050505] border border-[#1a1a1a] rounded-2xl p-5 sm:p-8 md:p-10">
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Row 1: Name + Email */}
                 <div className="grid md:grid-cols-2 gap-6">
@@ -199,10 +201,19 @@ export default function B2BForm({cms}: B2BFormProps) {
                 </div>
 
                 {/* Submit */}
+                <motion.div
+                  onViewportEnter={() => {
+                    if (!submitGlowFired.current) {
+                      submitGlowFired.current = true;
+                      setSubmitGlow(true);
+                    }
+                  }}
+                  viewport={{once: true, margin: '-50px'}}
+                >
                 <button
                   type="submit"
                   disabled={status === 'submitting' || status === 'success'}
-                  className="w-full border border-lime-400/60 text-lime-400 font-bold py-4 rounded-lg uppercase tracking-wider transition-all hover:bg-lime-400/10 hover:border-lime-400 hover:shadow-[0_0_20px_rgba(163,230,53,0.15)] disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer"
+                  className={`w-full border border-lime-400/60 text-lime-400 font-bold py-4 rounded-lg uppercase tracking-wider transition-all hover:bg-lime-400/10 hover:border-lime-400 hover:shadow-[0_0_20px_rgba(163,230,53,0.15)] disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer ${submitGlow ? 'cta-glow' : ''}`}
                 >
                   {status === 'submitting' ? (
                     <span className="flex items-center justify-center gap-2">
@@ -213,6 +224,7 @@ export default function B2BForm({cms}: B2BFormProps) {
                     t('formSubmit')
                   )}
                 </button>
+                </motion.div>
 
                 {/* Error message */}
                 {status === 'error' && (

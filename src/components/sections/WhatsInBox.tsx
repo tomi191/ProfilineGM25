@@ -67,7 +67,7 @@ export default function WhatsInBox({cms}: WhatsInBoxProps) {
         </motion.div>
 
         {/* Grid of items */}
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
+        <div className="grid grid-cols-3 md:grid-cols-5 gap-4 sm:gap-6">
           {items.map((item, i) => {
             const Icon = item.icon;
             return (
@@ -77,7 +77,7 @@ export default function WhatsInBox({cms}: WhatsInBoxProps) {
                 whileInView={{opacity: 1, y: 0}}
                 viewport={{once: true, margin: '-100px'}}
                 transition={{duration: 0.4, delay: i * 0.1}}
-                className="bg-[#111] border border-[#222] rounded-xl p-6 text-center hover:border-[#333] transition-colors last:col-span-2 md:last:col-span-1 justify-self-center last:w-full md:last:w-auto"
+                className="bg-[#111] border border-[#222] rounded-xl p-4 sm:p-6 text-center hover:border-[#333] transition-colors"
               >
                 <Icon className="w-10 h-10 text-lime-400 mx-auto mb-4" />
                 <p className="text-sm font-medium text-gray-300">{c(item.key)}</p>

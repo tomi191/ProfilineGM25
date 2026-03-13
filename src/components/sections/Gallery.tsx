@@ -130,37 +130,39 @@ export default function Gallery({cms}: GalleryProps) {
             className="fixed inset-0 z-[60] bg-black/90 flex items-center justify-center"
             onClick={closeLightbox}
           >
-            {/* Close button */}
+            {/* Close button — large touch target */}
             <button
               onClick={closeLightbox}
-              className="absolute top-4 right-4 text-white/70 hover:text-white transition-colors cursor-pointer z-10"
+              className="absolute top-4 right-4 w-11 h-11 flex items-center justify-center text-white/70 hover:text-white transition-colors cursor-pointer z-10"
               aria-label="Close lightbox"
             >
               <X size={32} />
             </button>
 
-            {/* Previous arrow */}
+            {/* Previous arrow — bottom on mobile, side on desktop */}
             <button
               onClick={(e) => {
                 e.stopPropagation();
                 goPrev();
               }}
-              className="absolute left-4 top-1/2 -translate-y-1/2 text-white/70 hover:text-white transition-colors cursor-pointer z-10"
+              className="absolute left-4 bottom-6 md:bottom-auto md:top-1/2 md:-translate-y-1/2 w-11 h-11 flex items-center justify-center text-white/70 hover:text-white transition-colors cursor-pointer z-10"
               aria-label="Previous photo"
             >
-              <ChevronLeft size={40} />
+              <ChevronLeft size={32} className="md:hidden" />
+              <ChevronLeft size={40} className="hidden md:block" />
             </button>
 
-            {/* Next arrow */}
+            {/* Next arrow — bottom on mobile, side on desktop */}
             <button
               onClick={(e) => {
                 e.stopPropagation();
                 goNext();
               }}
-              className="absolute right-4 top-1/2 -translate-y-1/2 text-white/70 hover:text-white transition-colors cursor-pointer z-10"
+              className="absolute right-4 bottom-6 md:bottom-auto md:top-1/2 md:-translate-y-1/2 w-11 h-11 flex items-center justify-center text-white/70 hover:text-white transition-colors cursor-pointer z-10"
               aria-label="Next photo"
             >
-              <ChevronRight size={40} />
+              <ChevronRight size={32} className="md:hidden" />
+              <ChevronRight size={40} className="hidden md:block" />
             </button>
 
             {/* Image */}

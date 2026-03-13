@@ -40,22 +40,26 @@ export default function TrustBar({cms}: TrustBarProps) {
   return (
     <section className="bg-[#0a0a0a] border-y border-[#1a1a1a] py-8 relative z-30">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
-          {trustItems.map(({key, Icon}) => (
-            <div key={key} className="group relative flex flex-col items-center text-center">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
+          {trustItems.map(({key, Icon}, i) => (
+            <div key={key} className={`group relative flex flex-col items-center text-center ${i === 4 ? 'col-span-2 sm:col-span-1' : ''}`}>
               <Icon className="w-8 h-8 text-lime-400 mb-3" />
-              <span className="text-xs md:text-sm font-medium text-gray-400 uppercase tracking-wider">
+              <span className="text-[11px] sm:text-xs md:text-sm font-medium text-gray-400 uppercase tracking-wider">
                 {c(key)}
               </span>
 
-              {/* CSS-only tooltip */}
-              <div className="pointer-events-none absolute bottom-full left-1/2 -translate-x-1/2 mb-3 w-56 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-40">
+              {/* Tooltip — visible on hover (desktop) and below item text on mobile via description */}
+              <div className="hidden md:block pointer-events-none absolute bottom-full left-1/2 -translate-x-1/2 mb-3 w-56 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-40">
                 <div className="bg-[#111] border border-[#333] text-sm text-gray-300 p-3 rounded-lg shadow-xl">
                   {c(`${key}Tooltip`)}
                 </div>
                 {/* Arrow */}
                 <div className="mx-auto w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[6px] border-t-[#333]" />
               </div>
+              {/* Mobile: show description inline below label */}
+              <span className="block md:hidden text-[10px] text-gray-500 mt-1 leading-tight">
+                {c(`${key}Tooltip`)}
+              </span>
             </div>
           ))}
         </div>

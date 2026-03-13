@@ -89,13 +89,13 @@ export default function TechSpecs({cms}: TechSpecsProps) {
             })}
           </div>
 
-          {/* CENTER — circular product image */}
+          {/* CENTER — circular product image (shown first on mobile) */}
           <motion.div
             initial={{opacity: 0, scale: 0.9}}
             whileInView={{opacity: 1, scale: 1}}
             viewport={{once: true, margin: '-100px'}}
             transition={{duration: 0.7, delay: 0.2}}
-            className="relative aspect-square rounded-full overflow-hidden bg-[#111] border border-[#222] mx-auto w-full max-w-[400px]"
+            className="relative aspect-square rounded-full overflow-hidden bg-[#111] border border-[#222] mx-auto w-full max-w-[400px] order-first lg:order-none"
             style={{boxShadow: '0 0 60px rgba(163, 230, 53, 0.1)'}}
           >
             <Image
