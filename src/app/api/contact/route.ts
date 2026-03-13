@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createAdminClient } from '@/lib/supabase/admin';
-import { sendPushToAll } from '@/lib/push-send';
+import { createClient } from '@supabase/supabase-js';
 
 // Simple in-memory rate limiting
 const rateLimit = new Map<string, { count: number; resetTime: number }>();
@@ -51,9 +50,13 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Insert into Supabase
-    const supabase = createAdminClient();
-    const { data: insertedInquiry, error: dbError } = await supabase
+    // Insert into Supabase using anon key (RLS allows anon INSERT)
+    const supabase = createClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+    );
+
+    const { error: dbError } = await supabase
       .from('inquiries')
       .insert({
         name,
@@ -64,9 +67,7 @@ export async function POST(request: NextRequest) {
         message: message || null,
         locale: locale || 'en',
         status: 'new',
-      })
-      .select('id')
-      .single();
+      });
 
     if (dbError) {
       console.error('Supabase error:', dbError);
@@ -76,25 +77,43 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Create in-app notification for admin
-    if (insertedInquiry) {
-      await supabase.from('notifications').insert({
-        type: 'new_inquiry',
-        title: 'New inquiry',
-        body: `${company} (${country})`,
-        inquiry_id: insertedInquiry.id,
-      });
-
-      // Send push notification to all subscribed admins
+    // Create notification + push in background (use service role if available, otherwise skip)
+    const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+    if (serviceKey) {
       try {
-        await sendPushToAll({
-          title: 'New Inquiry',
-          body: `${company} (${country}) — ${name}`,
-          url: `${process.env.NEXT_PUBLIC_SITE_URL}/admin/inquiries/${insertedInquiry.id}`,
-        });
-      } catch (pushError) {
-        console.error('Push notification error:', pushError);
-        // Don't fail the request if push fails
+        const adminClient = createClient(
+          process.env.NEXT_PUBLIC_SUPABASE_URL!,
+          serviceKey
+        );
+
+        // Find the just-inserted inquiry
+        const { data: inserted } = await adminClient
+          .from('inquiries')
+          .select('id')
+          .eq('email', email)
+          .eq('company', company)
+          .order('created_at', { ascending: false })
+          .limit(1)
+          .single();
+
+        if (inserted) {
+          await adminClient.from('notifications').insert({
+            type: 'new_inquiry',
+            title: 'New inquiry',
+            body: `${company} (${country})`,
+            inquiry_id: inserted.id,
+          });
+
+          // Send push notification
+          const { sendPushToAll } = await import('@/lib/push-send');
+          await sendPushToAll({
+            title: 'New Inquiry',
+            body: `${company} (${country}) — ${name}`,
+            url: `${process.env.NEXT_PUBLIC_SITE_URL}/admin/inquiries/${inserted.id}`,
+          });
+        }
+      } catch (notifyError) {
+        console.error('Notification error:', notifyError);
       }
     }
 
